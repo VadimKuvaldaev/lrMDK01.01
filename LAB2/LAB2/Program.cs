@@ -22,6 +22,7 @@ namespace LAB2
                 Console.Write(Array[i] + ",");
             }
             Console.WriteLine(Array.Length + 10 + "]");
+            /// Задача не сделана, выводится только числа в диапазоне  от 10 до 2000
         }
     }
 }
