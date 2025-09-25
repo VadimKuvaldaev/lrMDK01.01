@@ -14,12 +14,12 @@ namespace LAB1
             Console.WriteLine("Введите размер массива: ");
             int Length = Convert.ToInt32(Console.ReadLine());
             int[] Array = new int[Length];
-            Console.WriteLine("Ввести элементы массива: ");
+            Console.WriteLine("Введите элементы массива: ");
             for (int i = 0; i < Length; i++)
             {
                 Array[i] = Convert.ToInt32(Console.ReadLine());
             }
-            Console.WriteLine("элементы массива: ");
+            Console.WriteLine("Элементы массива: ");
             foreach(int element in Array)
             {
                 Console.WriteLine(element);
