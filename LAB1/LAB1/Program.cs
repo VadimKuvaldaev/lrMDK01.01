@@ -16,17 +16,25 @@ namespace LAB1
             int Length = Convert.ToInt32(Console.ReadLine());
             int[] Array = new int[Length];
             Console.WriteLine("Введите элементы массива");
-            for (int i =0; i < Length; i++)
+            for (int i = 0; i < Length; i++)
             {
                 Array[i] = Convert.ToInt32(Console.ReadLine());
             }
-            int sum =0;
+            double sum = 0;
             foreach (int i in Array)
-            { 
-              sum += i;
+            {
+                sum += i;
             }
-            double average = (double)sum / Length;
+            double average = sum / Length;
             Console.WriteLine($"Среднее значение: {average}");
+            Console.Write("Элементы меньше среднего: ");
+            foreach (int element in Array)
+            {
+                if (element < average)
+                {
+                    Console.Write($"{element} ");
+                }
+            }
         }
     }
 }
