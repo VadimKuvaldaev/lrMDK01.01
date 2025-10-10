@@ -20,7 +20,13 @@ namespace LAB1
             {
                 Array[i] = Convert.ToInt32(Console.ReadLine());
             }
-            
+            int sum =0;
+            foreach (int i in Array)
+            { 
+              sum += i;
+            }
+            double average = (double)sum / Length;
+            Console.WriteLine($"Среднее значение: {average}");
         }
     }
 }
