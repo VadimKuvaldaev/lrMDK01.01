@@ -18,7 +18,35 @@ namespace LAB2
               array[i] = a;
                 ++a;
             }
+            List<int> result = new List<int>();
+            foreach (int element in array)
+            {
+                bool isSimple = true;
+
+                if (element < 2)
+                {
+                    isSimple = false;
+                }
+                else
+                {
+                    for (int d = 2; d * d <= element; d++)
+                    {
+                        if (element % d == 0)
+                        {
+                            isSimple = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (isSimple)
+                {
+                    result.Add(element);
+                }
+            }
+
             
         }
     }
-}
+    }
+
