@@ -12,11 +12,11 @@ namespace LAB2
         static void Main(string[] args)
         {
             int[] array = new int[1990];
-            int a = 10;
+            int initValue = 10;
             for (int i = 0; i < array.Length; i++) 
             {
-              array[i] = a;
-                ++a;
+              array[i] = initValue;
+                ++initValue;
             }
             List<int> result = new List<int>();
             foreach (int element in array)
@@ -29,9 +29,9 @@ namespace LAB2
                 }
                 else
                 {
-                    for (int d = 2; d * d <= element; d++)
+                    for (int divider = 2; divider * divider <= element; divider++)
                     {
-                        if (element % d == 0)
+                        if (element % divider == 0)
                         {
                             isSimple = false;
                             break;
