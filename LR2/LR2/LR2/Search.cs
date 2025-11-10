@@ -20,5 +20,11 @@ namespace LR2
             }
             return -1;
         }
+        static public (List<string>, List<int>) FindAllGamesByGenre(int indexGenre, 
+                                                                     List<string>[] allGames, 
+                                                                     List<int>[] counts)
+        {
+
+        }
     }
 }
