@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LR2
+namespace LR2 // Кувалдаев П-30 Вариант 5
 {
     public class Search
     {
