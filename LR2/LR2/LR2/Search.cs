@@ -9,8 +9,16 @@ namespace LR2
     public class Search
     {
         static public int FindIndexGenre(string userQuery, string[] genres) 
-        { 
-        
+        {
+            for (int index = 0; index < genres.Length; ++index) 
+            { 
+              string valueGenre = genres[index].ToLower();
+                if (valueGenre == userQuery.ToLower()) 
+                {
+                  return index;
+                }
+            }
+            return -1;
         }
     }
 }
