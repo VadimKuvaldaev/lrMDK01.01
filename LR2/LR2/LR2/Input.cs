@@ -63,7 +63,8 @@ namespace LR2
         }
         static public string InputUserQuery() 
         {
-         
+            Console.Write("Введите жанр игр (RPG, Shooter, Action или Sandbox): ");
+            return Console.ReadLine();
         }
     }
 }
