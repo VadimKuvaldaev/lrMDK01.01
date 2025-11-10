@@ -61,5 +61,9 @@ namespace LR2
 
             return (gamesByGenre, counts);
         }
+        static public string InputUserQuery() 
+        {
+         
+        }
     }
 }
