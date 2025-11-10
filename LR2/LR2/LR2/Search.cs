@@ -24,7 +24,11 @@ namespace LR2
                                                                      List<string>[] allGames, 
                                                                      List<int>[] counts)
         {
-
+            List<string> gamesByGenre = new List<string>();
+            List<int> countsByGenre = new List<int>();
+            gamesByGenre = allGames[indexGenre];
+            countsByGenre = counts[indexGenre];
+            return (gamesByGenre, countsByGenre);
         }
     }
 }
