@@ -16,5 +16,9 @@ namespace LR2
               Console.WriteLine($"{i + 1}. {games[i]}");
             }
         }
+        static public void PrintCounts(List<string> counts) 
+        {
+          
+        }
     }
 }
