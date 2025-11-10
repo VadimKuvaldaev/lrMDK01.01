@@ -27,5 +27,9 @@ namespace LR2
                 }
             }
         }
+        static public double CalculateAverage(List<int> counts) // Подсчет среднего количества скачиваний
+        {
+          
+        }
     }
 }
