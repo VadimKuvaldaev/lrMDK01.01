@@ -61,7 +61,7 @@ namespace LR2
 
             return (gamesByGenre, counts);
         }
-        static public string InputUserQuery() 
+        static public string InputUserQuery() // запрос жанра у пользователя
         {
             Console.Write("Введите жанр игр (RPG, Shooter, Action или Sandbox): ");
             return Console.ReadLine();

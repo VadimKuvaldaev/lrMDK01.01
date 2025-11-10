@@ -8,7 +8,7 @@ namespace LR2
 {
     public class Search
     {
-        static public int FindIndexGenre(string userQuery, string[] genres) 
+        static public int FindIndexGenre(string userQuery, string[] genres) // поиск индекса жанра
         {
             for (int index = 0; index < genres.Length; ++index) 
             { 
@@ -20,7 +20,7 @@ namespace LR2
             }
             return -1;
         }
-        static public (List<string>, List<int>) FindAllGamesByGenre(int indexGenre, 
+        static public (List<string>, List<int>) FindAllGamesByGenre(int indexGenre, // получение всех игр определенного жанра
                                                                      List<string>[] allGames, 
                                                                      List<int>[] counts)
         {
