@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LR2
 {
-    internal class Input
+    public class Input
     {
         static public (List<string>[], List<int>[]) InputGamesByGenre() // данные о играх
         {
