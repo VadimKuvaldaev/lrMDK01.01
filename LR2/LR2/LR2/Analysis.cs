@@ -29,7 +29,12 @@ namespace LR2
         }
         static public double CalculateAverage(List<int> counts) // Подсчет среднего количества скачиваний
         {
-          
+          double sum = 0;
+            foreach (int count in counts)
+            { 
+              sum += count;
+            }
+            return sum / counts.Count;
         }
     }
 }
