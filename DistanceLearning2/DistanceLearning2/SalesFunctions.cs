@@ -72,5 +72,34 @@ namespace DistanceLearning2
             }
             return worstPhone;
         }
-    }
-}
+        static public void PrintDailySales(List<PhoneSale> sales, DateTime startDate, DateTime endDate) // Функция для вывода продаж по дням
+        {
+            Console.WriteLine();
+            Console.WriteLine("   Продажи по дням   ");
+
+            // Создаем список уникальных дат
+            List<DateTime> dates = new List<DateTime>();
+            for (int i = 0; i < sales.Count; i++)
+            {
+                if (sales[i].Date >= startDate && sales[i].Date <= endDate)
+                {
+                    DateTime dateOnly = sales[i].Date.Date;
+                    bool found = false;
+
+                    for (int j = 0; j < dates.Count; j++)
+                    {
+                        if (dates[j] == dateOnly)
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found)
+                    {
+                        dates.Add(dateOnly);
+                    }
+                }
+            }
+        }
+    } }
