@@ -101,5 +101,34 @@ namespace DistanceLearning2
                     }
                 }
             }
+            for (int i = 0; i < dates.Count - 1; i++)
+            {
+                for (int j = i + 1; j < dates.Count; j++)
+                {
+                    if (dates[i] > dates[j])
+                    {
+                        DateTime temp = dates[i];
+                        dates[i] = dates[j];
+                        dates[j] = temp;
+                    }
+                }
+            }
+            for (int i = 0; i < dates.Count; i++)
+            {
+                double dayTotal = 0;
+                int dayCount = 0;
+
+                for (int j = 0; j < sales.Count; j++)
+                {
+                    if (sales[j].Date.Date == dates[i])
+                    {
+                        dayTotal = dayTotal + sales[j].TotalAmount;
+                        dayCount = dayCount + sales[j].Quantity;
+                    }
+                }
+
+                Console.WriteLine(dates[i].ToString("dd.MM.yyyy") + ": " + dayCount + " телефонов на сумму " + dayTotal.ToString("F2") + " руб.");
+            }
         }
-    } }
+    }
+} 
