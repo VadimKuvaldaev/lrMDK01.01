@@ -8,6 +8,7 @@ namespace LR2 // Кувалдаев П-30 Вариант 5
 {
     internal class Program
     {
+        static void Main(string[] args) { }
         static public void Print(List<string> games) // вывод списка игр
         {
             Console.WriteLine("Список игр: ");

@@ -38,7 +38,7 @@ namespace LR2 // Кувалдаев П-30 Вариант 5
             counts[1].Add(2500000);
             gamesByGenre[1].Add("DOOM Eternal");
             counts[1].Add(800000);
-            gamesByGenre[1].Add("Battlefield 2042");
+            gamesByGenre[1].Add("Battlefield 6");
             counts[1].Add(600000);
 
             gamesByGenre[2].Add("Grand Theft Auto V"); // Action
