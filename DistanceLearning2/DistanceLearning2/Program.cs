@@ -48,7 +48,7 @@ namespace DistanceLearning2
             {
                 string currentModel = sales[i].PhoneModel;
                 int currentQuantity = sales[i].Quantity;
-                bool found = false;           
+                bool found = false;
                 for (int j = 0; j < models.Count; j++) // Поиск моделей в списке
                 {
                     if (models[j] == currentModel)
@@ -66,7 +66,6 @@ namespace DistanceLearning2
             }
             string bestPhone = FindBestSellingPhone(models, quantities);
             Console.WriteLine("б) Самый продаваемый телефон: " + bestPhone); // Вывод на консоль самого продаваемого телефона
-
 
             // в) Два телефона, приносящие наибольшую прибыль
             List<string> profitModels = new List<string>();
@@ -93,7 +92,27 @@ namespace DistanceLearning2
                     profits.Add(currentProfit);
                 }
             }
-            
+            string firstProfitPhone = "";
+            double firstProfit = 0;
+            for (int i = 0; i < profitModels.Count; i++)
+            {
+                if (profits[i] > firstProfit)
+                {
+                    firstProfit = profits[i];
+                    firstProfitPhone = profitModels[i];
+                }
+            }
+            string secondProfitPhone = "";
+            double secondProfit = 0;
+            for (int i = 0; i < profitModels.Count; i++)
+            {
+                if (profits[i] > secondProfit && profitModels[i] != firstProfitPhone)
+                {
+                    secondProfit = profits[i];
+                    secondProfitPhone = profitModels[i];
+                }
+            }
 
         }
+    }
 }
