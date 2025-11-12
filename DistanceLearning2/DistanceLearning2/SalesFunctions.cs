@@ -30,6 +30,32 @@ namespace DistanceLearning2
             sale.TotalAmount = sale.Quantity * sale.Price;
             sales.Add(sale);
         }
+        static public double CalculateTotalSales(List<PhoneSale> sales, DateTime startDate, DateTime endDate) // Функция для расчета общей суммы продаж
+        {
+            double total = 0;
+            for (int i = 0; i < sales.Count; i++)
+            {
+                if (sales[i].Date >= startDate && sales[i].Date <= endDate)
+                {
+                    total = total + sales[i].TotalAmount;
+                }
+            }
+            return total;
+        }
+        static public string FindBestSellingPhone(List<string> models, List<int> quantities)  // Функция для поиска самого продаваемого телефона
+        {
+            string bestPhone = "Нет данных";
+            int maxCount = 0;
 
+            for (int i = 0; i < models.Count; i++)
+            {
+                if (quantities[i] > maxCount)
+                {
+                    maxCount = quantities[i];
+                    bestPhone = models[i];
+                }
+            }
+            return bestPhone;
+        }
     }
 }
