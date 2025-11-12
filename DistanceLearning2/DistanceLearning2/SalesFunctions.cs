@@ -21,5 +21,10 @@ namespace DistanceLearning2
             phonePrices.Add("Motorola Edge 40", 449.99); 
             return phonePrices; 
         }
+        public static double CalculateTotalAmount(int quantity, double price) // Функция вычисления общей суммы
+        {
+            return quantity * price; 
+        }
+
     }
 }
