@@ -64,6 +64,8 @@ namespace DistanceLearning2
                     quantities.Add(currentQuantity);
                 }
             }
+            string bestPhone = FindBestSellingPhone(models, quantities);
+            Console.WriteLine("б) Самый продаваемый телефон: " + bestPhone); // Вывод на консоль самого продаваемого телефона
         }
     }
 }
