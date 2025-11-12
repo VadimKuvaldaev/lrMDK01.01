@@ -10,27 +10,27 @@ namespace DistanceLearning2
 {
     public class SalesFunctions
     {
-        public static void AddSale(List<PhoneSale> sales, Dictionary<string, double> prices, DateTime date, string model, int quantity) // Функция добавления продажи
+        public static void AddSale(List<PhoneSale> sales, Dictionary<string, double> prices, DateTime date, string model, int quantity)
         {
             PhoneSale sale = new PhoneSale();
             sale.Date = date;
             sale.PhoneModel = model;
             sale.Quantity = quantity;
 
-            // Устанавливаем цену из словаря или по умолчанию
             if (prices.ContainsKey(model))
             {
                 sale.Price = prices[model];
             }
             else
             {
-                sale.Price = 500.00; // цена по умолчанию
+                sale.Price = 500.00;
             }
 
             sale.TotalAmount = sale.Quantity * sale.Price;
             sales.Add(sale);
         }
-        static public double CalculateTotalSales(List<PhoneSale> sales, DateTime startDate, DateTime endDate) // Функция для расчета общей суммы продаж
+
+        public static double CalculateTotalSales(List<PhoneSale> sales, DateTime startDate, DateTime endDate)
         {
             double total = 0;
             for (int i = 0; i < sales.Count; i++)
@@ -42,7 +42,8 @@ namespace DistanceLearning2
             }
             return total;
         }
-        static public string FindBestSellingPhone(List<string> models, List<int> quantities)  // Функция для поиска самого продаваемого телефона
+
+        public static string FindBestSellingPhone(List<string> models, List<int> quantities)
         {
             string bestPhone = "Нет данных";
             int maxCount = 0;
@@ -57,7 +58,8 @@ namespace DistanceLearning2
             }
             return bestPhone;
         }
-        static public string FindWorstSellingPhone(List<string> models, List<int> quantities) // Функция для поиска телефона с наименьшими продажами
+
+        public static string FindWorstSellingPhone(List<string> models, List<int> quantities)
         {
             string worstPhone = "Нет данных";
             int minCount = 1000000;
@@ -72,12 +74,12 @@ namespace DistanceLearning2
             }
             return worstPhone;
         }
-        static public void PrintDailySales(List<PhoneSale> sales, DateTime startDate, DateTime endDate) // Функция для вывода продаж по дням
+
+        public static void PrintDailySales(List<PhoneSale> sales, DateTime startDate, DateTime endDate)
         {
             Console.WriteLine();
             Console.WriteLine("   Продажи по дням   ");
 
-            // Создаем список уникальных дат
             List<DateTime> dates = new List<DateTime>();
             for (int i = 0; i < sales.Count; i++)
             {
@@ -101,6 +103,7 @@ namespace DistanceLearning2
                     }
                 }
             }
+
             for (int i = 0; i < dates.Count - 1; i++)
             {
                 for (int j = i + 1; j < dates.Count; j++)
@@ -113,6 +116,7 @@ namespace DistanceLearning2
                     }
                 }
             }
+
             for (int i = 0; i < dates.Count; i++)
             {
                 double dayTotal = 0;
@@ -131,4 +135,4 @@ namespace DistanceLearning2
             }
         }
     }
-} 
+}

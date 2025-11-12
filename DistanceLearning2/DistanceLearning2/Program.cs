@@ -8,8 +8,132 @@ namespace DistanceLearning2
 {
     internal class Program
     {
-        static void Main()
+        public static void AddSale(List<PhoneSale> sales, Dictionary<string, double> prices, DateTime date, string model, int quantity)
         {
+            PhoneSale sale = new PhoneSale();
+            sale.Date = date;
+            sale.PhoneModel = model;
+            sale.Quantity = quantity;
+
+            if (prices.ContainsKey(model))
+            {
+                sale.Price = prices[model];
+            }
+            else
+            {
+                sale.Price = 500.00;
+            }
+
+            sale.TotalAmount = sale.Quantity * sale.Price;
+            sales.Add(sale);
+        }
+
+        public static double CalculateTotalSales(List<PhoneSale> sales, DateTime startDate, DateTime endDate)
+        {
+            double total = 0;
+            for (int i = 0; i < sales.Count; i++)
+            {
+                if (sales[i].Date >= startDate && sales[i].Date <= endDate)
+                {
+                    total = total + sales[i].TotalAmount;
+                }
+            }
+            return total;
+        }
+
+        public static string FindBestSellingPhone(List<string> models, List<int> quantities)
+        {
+            string bestPhone = "Нет данных";
+            int maxCount = 0;
+
+            for (int i = 0; i < models.Count; i++)
+            {
+                if (quantities[i] > maxCount)
+                {
+                    maxCount = quantities[i];
+                    bestPhone = models[i];
+                }
+            }
+            return bestPhone;
+        }
+
+        public static string FindWorstSellingPhone(List<string> models, List<int> quantities)
+        {
+            string worstPhone = "Нет данных";
+            int minCount = 1000000;
+
+            for (int i = 0; i < models.Count; i++)
+            {
+                if (quantities[i] < minCount)
+                {
+                    minCount = quantities[i];
+                    worstPhone = models[i];
+                }
+            }
+            return worstPhone;
+        }
+
+        public static void PrintDailySales(List<PhoneSale> sales, DateTime startDate, DateTime endDate)
+        {
+            Console.WriteLine();
+            Console.WriteLine("   Продажи по дням   ");
+
+            List<DateTime> dates = new List<DateTime>();
+            for (int i = 0; i < sales.Count; i++)
+            {
+                if (sales[i].Date >= startDate && sales[i].Date <= endDate)
+                {
+                    DateTime dateOnly = sales[i].Date.Date;
+                    bool found = false;
+
+                    for (int j = 0; j < dates.Count; j++)
+                    {
+                        if (dates[j] == dateOnly)
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found)
+                    {
+                        dates.Add(dateOnly);
+                    }
+                }
+            }
+
+            for (int i = 0; i < dates.Count - 1; i++)
+            {
+                for (int j = i + 1; j < dates.Count; j++)
+                {
+                    if (dates[i] > dates[j])
+                    {
+                        DateTime temp = dates[i];
+                        dates[i] = dates[j];
+                        dates[j] = temp;
+                    }
+                }
+            }
+
+            for (int i = 0; i < dates.Count; i++)
+            {
+                double dayTotal = 0;
+                int dayCount = 0;
+
+                for (int j = 0; j < sales.Count; j++)
+                {
+                    if (sales[j].Date.Date == dates[i])
+                    {
+                        dayTotal = dayTotal + sales[j].TotalAmount;
+                        dayCount = dayCount + sales[j].Quantity;
+                    }
+                }
+
+                Console.WriteLine(dates[i].ToString("dd.MM.yyyy") + ": " + dayCount + " телефонов на сумму " + dayTotal.ToString("F2") + " руб.");
+            }
+        }
+        static void Main()
+        {                    
             List<PhoneSale> sales = new List<PhoneSale>();
 
             Dictionary<string, double> phonePrices = new Dictionary<string, double>();
@@ -44,12 +168,16 @@ namespace DistanceLearning2
             // б) Самый продаваемый телефон и телефон с наименьшими продажами
             List<string> models = new List<string>();
             List<int> quantities = new List<int>();
-            for (int i = 0; i < sales.Count; i++)  // Заполнение списков данными о продажах
+
+            // Заполнение списков данными о продажах
+            for (int i = 0; i < sales.Count; i++)
             {
                 string currentModel = sales[i].PhoneModel;
                 int currentQuantity = sales[i].Quantity;
                 bool found = false;
-                for (int j = 0; j < models.Count; j++) // Поиск моделей в списке
+
+                // Поиск моделей в списке
+                for (int j = 0; j < models.Count; j++)
                 {
                     if (models[j] == currentModel)
                     {
@@ -58,18 +186,25 @@ namespace DistanceLearning2
                         break;
                     }
                 }
-                if (!found) // Если модель не найдена, добавляем новую
+
+                // Если модель не найдена, добавляем новую
+                if (!found)
                 {
                     models.Add(currentModel);
                     quantities.Add(currentQuantity);
                 }
             }
+
             string bestPhone = FindBestSellingPhone(models, quantities);
-            Console.WriteLine("б) Самый продаваемый телефон: " + bestPhone); // Вывод на консоль самого продаваемого телефона
+            Console.WriteLine("б) Самый продаваемый телефон: " + bestPhone);
+
+            string worstPhone = FindWorstSellingPhone(models, quantities);
+            Console.WriteLine("   Телефон с наименьшими продажами: " + worstPhone);
 
             // в) Два телефона, приносящие наибольшую прибыль
             List<string> profitModels = new List<string>();
             List<double> profits = new List<double>();
+
             for (int i = 0; i < sales.Count; i++)
             {
                 string currentModel = sales[i].PhoneModel;
@@ -86,12 +221,14 @@ namespace DistanceLearning2
                         break;
                     }
                 }
+
                 if (!found)
                 {
                     profitModels.Add(currentModel);
                     profits.Add(currentProfit);
                 }
             }
+
             string firstProfitPhone = "";
             double firstProfit = 0;
             for (int i = 0; i < profitModels.Count; i++)
@@ -102,6 +239,7 @@ namespace DistanceLearning2
                     firstProfitPhone = profitModels[i];
                 }
             }
+
             string secondProfitPhone = "";
             double secondProfit = 0;
             for (int i = 0; i < profitModels.Count; i++)
@@ -112,10 +250,13 @@ namespace DistanceLearning2
                     secondProfitPhone = profitModels[i];
                 }
             }
+
             Console.WriteLine("в) Два телефона, приносящие наибольшую прибыль:");
             Console.WriteLine("   1. " + firstProfitPhone);
             Console.WriteLine("   2. " + secondProfitPhone);
+
             PrintDailySales(sales, startDate, endDate);
+
             Console.WriteLine();
             Console.WriteLine("   Временной ряд продаж   ");
             for (int i = 0; i < sales.Count; i++)
@@ -131,3 +272,4 @@ namespace DistanceLearning2
         }
     }
 }
+
