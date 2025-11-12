@@ -112,7 +112,9 @@ namespace DistanceLearning2
                     secondProfitPhone = profitModels[i];
                 }
             }
-
+            Console.WriteLine("в) Два телефона, приносящие наибольшую прибыль:");
+            Console.WriteLine("   1. " + firstProfitPhone);
+            Console.WriteLine("   2. " + secondProfitPhone);
         }
     }
 }
