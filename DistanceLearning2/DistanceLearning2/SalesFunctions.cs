@@ -10,7 +10,7 @@ namespace DistanceLearning2
 {
     public class SalesFunctions
     {
-        public static void AddSale(List<PhoneSale> sales, Dictionary<string, double> phonePrices, DateTime date, string phoneModel, int quantity) // Функция добавления продажи
+        public static void AddSale(List<PhoneSale> sales, Dictionary<string, double> prices, DateTime date, string model, int quantity) // Функция добавления продажи
         {
             PhoneSale sale = new PhoneSale();
             sale.Date = date;
