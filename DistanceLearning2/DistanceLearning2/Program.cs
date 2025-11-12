@@ -115,6 +115,19 @@ namespace DistanceLearning2
             Console.WriteLine("в) Два телефона, приносящие наибольшую прибыль:");
             Console.WriteLine("   1. " + firstProfitPhone);
             Console.WriteLine("   2. " + secondProfitPhone);
+            PrintDailySales(sales, startDate, endDate);
+            Console.WriteLine();
+            Console.WriteLine("   Временной ряд продаж   ");
+            for (int i = 0; i < sales.Count; i++)
+            {
+                if (sales[i].Date >= startDate && sales[i].Date <= endDate)
+                {
+                    Console.WriteLine(sales[i].Date.ToString("dd.MM.yyyy") + " - " +
+                        sales[i].PhoneModel + ": " + sales[i].Quantity + " шт. × " +
+                        sales[i].Price.ToString("F2") + " руб. = " +
+                        sales[i].TotalAmount.ToString("F2") + " руб.");
+                }
+            }
         }
     }
 }
