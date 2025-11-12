@@ -14,4 +14,5 @@ namespace DistanceLearning2
         public double Price; 
         public double TotalAmount;
     }
+
 }
