@@ -8,7 +8,7 @@ namespace DistanceLearning2
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             List<PhoneSale> sales = new List<PhoneSale>();
 
@@ -36,6 +36,10 @@ namespace DistanceLearning2
             // Период анализа
             DateTime startDate = new DateTime(2025, 11, 1);
             DateTime endDate = new DateTime(2025, 11, 11);
+
+            // a) Общая сумма проданного за период
+            double totalAmount = CalculateTotalSales(sales, startDate, endDate);
+            Console.WriteLine("a) Общая сумма продаж за период: " + totalAmount.ToString("F2") + " руб.");
         }
     }
 }
