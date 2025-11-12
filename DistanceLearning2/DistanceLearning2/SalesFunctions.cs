@@ -25,6 +25,22 @@ namespace DistanceLearning2
         {
             return quantity * price; 
         }
+        public static void AddSale(List<PhoneSale> sales, Dictionary<string, double> phonePrices, DateTime date, string phoneModel, int quantity) // Функция добавления продажи
+        {
+            double price = 500.00; // Установка цены по умолчанию
+            if (phonePrices.ContainsKey(phoneModel)) // Проверка наличия модели в словаре цен
+            {
+                price = phonePrices[phoneModel]; 
+            }
+            PhoneSale sale = new PhoneSale(); 
+            sale.Date = date; 
+            sale.PhoneModel = phoneModel; 
+            sale.Quantity = quantity; 
+            sale.Price = price; 
+            sale.TotalAmount = CalculateTotalAmount(quantity, price); // Вычисление общей суммы
+
+            sales.Add(sale); // Добавление продажи в список
+        }
 
     }
 }
