@@ -46,7 +46,6 @@
     <Compile Include="PhoneSale.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SalesFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
