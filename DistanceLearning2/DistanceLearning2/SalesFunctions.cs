@@ -57,6 +57,20 @@ namespace DistanceLearning2
             }
             return bestPhone;
         }
-        
+        static public string FindWorstSellingPhone(List<string> models, List<int> quantities) // Функция для поиска телефона с наименьшими продажами
+        {
+            string worstPhone = "Нет данных";
+            int minCount = 1000000;
+
+            for (int i = 0; i < models.Count; i++)
+            {
+                if (quantities[i] < minCount)
+                {
+                    minCount = quantities[i];
+                    worstPhone = models[i];
+                }
+            }
+            return worstPhone;
+        }
     }
 }
