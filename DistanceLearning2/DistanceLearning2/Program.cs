@@ -40,6 +40,30 @@ namespace DistanceLearning2
             // a) Общая сумма проданного за период
             double totalAmount = CalculateTotalSales(sales, startDate, endDate);
             Console.WriteLine("a) Общая сумма продаж за период: " + totalAmount.ToString("F2") + " руб.");
+
+            // б) Самый продаваемый телефон и телефон с наименьшими продажами
+            List<string> models = new List<string>();
+            List<int> quantities = new List<int>();
+            for (int i = 0; i < sales.Count; i++)  // Заполнение списков данными о продажах
+            {
+                string currentModel = sales[i].PhoneModel;
+                int currentQuantity = sales[i].Quantity;
+                bool found = false;           
+                for (int j = 0; j < models.Count; j++) // Поиск моделей в списке
+                {
+                    if (models[j] == currentModel)
+                    {
+                        quantities[j] = quantities[j] + currentQuantity;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) // Если модель не найдена, добавляем новую
+                {
+                    models.Add(currentModel);
+                    quantities.Add(currentQuantity);
+                }
+            }
         }
     }
 }
