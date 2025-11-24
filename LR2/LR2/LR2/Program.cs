@@ -8,7 +8,7 @@ namespace LR2 // Кувалдаев П-30 Вариант 5
 {
     internal class Program
     {
-        static public void Main(string[] args) // точка входа
+        static public void Main(string[] args)
         {
             string[] genres = { "RPG", "Shooter", "Action", "Sandbox" };
 
