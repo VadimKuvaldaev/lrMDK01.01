@@ -37,13 +37,11 @@ namespace Matrix_DZ
         public int Determinant()
         {
             if (!IsSquare)
-                throw new InvalidOperationException("Матрица должна быть квадратной");
+                Console.WriteLine("Матрица должна быть квадратной");
 
             if (Rows == 1) return matrix[0, 0];
             if (Rows == 2) return matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0];
-            if (Rows == 3) return Determinant3x3();
-
-            throw new NotImplementedException("Определитель реализован только для матриц до 3x3");
+            if (Rows == 3) return Determinant3x3();         
         }
 
         private int Determinant3x3()
@@ -60,7 +58,7 @@ namespace Matrix_DZ
         public static IntMatrix Multiply(IntMatrix a, IntMatrix b)
         {
             if (a.Columns != b.Rows)
-                throw new ArgumentException("Несовместимые размеры матриц");
+                Console.WriteLine("Несовместимые размеры матриц");
 
             IntMatrix result = new IntMatrix(a.Rows, b.Columns);
 

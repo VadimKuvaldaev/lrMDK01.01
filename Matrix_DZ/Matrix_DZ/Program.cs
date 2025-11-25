@@ -34,6 +34,7 @@ namespace Matrix_DZ
 
             Console.WriteLine();
 
+            // Создаем матрицу 3x3
             IntMatrix m3 = new IntMatrix(3, 3);
             m3.SetValue(0, 0, 5);
             m3.SetValue(0, 1, 6);
