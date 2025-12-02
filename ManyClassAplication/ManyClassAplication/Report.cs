@@ -24,12 +24,22 @@ namespace ManyClassAplication
         }
         public string PrintReport() 
         {
-            string result;
+            string result = "";
             foreach (ReportRow row in report_)
             {
-                report_.Add(ConvertRowToString(row));
+                result += ConvertRowToString(row) + "\n";
             }
+            Console.Write(result);
             return result;
+        }
+        public void CalculateSum() 
+        {
+            double sum = 0;
+            foreach (ReportRow row in report_)
+            {
+                sum += row.Quantity * row.Price;
+            }
+            Console.WriteLine("Сумма всех товаров - " + sum);
         }
     }
 }

@@ -28,12 +28,7 @@ namespace ManyClassAplication
             Console.WriteLine("Адрес склада: " + storage.GetLocation());
             Console.WriteLine("Идентификатор склада: " + storage.GetIdentifier());
 
-            /*foreach (Goods car in storage.GetProductCount().Keys)
-            {                
-                Console.WriteLine(string.Join(",", storage.GetProductCount()));
-            }*/
-
-            Console.Write("Сумма всех товаров на складе: "); storage.CalculateMoney();
+            Console.Write($"Сумма всех товаров на складе: "); storage.CalculateMoney();
 
             Console.WriteLine();
             Console.WriteLine("Название, количество, цена.");
@@ -60,6 +55,7 @@ namespace ManyClassAplication
             report.AddReport(row3);
 
             report.PrintReport();
+            report.CalculateSum();
         }
     }
 }

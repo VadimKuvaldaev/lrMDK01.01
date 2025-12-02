@@ -10,12 +10,12 @@ namespace ManyClassAplication
     {
         private string name_;
         private int price_;
-        //Устанвка имени
+        
         public void SetName(string name)
         {
             name_ = name;
         }
-        //Получение имени
+        
         public string GetName()
         {
             return name_;
