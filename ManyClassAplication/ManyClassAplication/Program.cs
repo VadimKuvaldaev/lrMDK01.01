@@ -31,7 +31,7 @@ namespace ManyClassAplication
             Console.Write($"Сумма всех товаров на складе: "); storage.CalculateMoney();
 
             Console.WriteLine();
-            Console.WriteLine("Название, количество, цена.");
+            Console.WriteLine("Название, цена, количество.");
 
             Report report = new Report();          
 
