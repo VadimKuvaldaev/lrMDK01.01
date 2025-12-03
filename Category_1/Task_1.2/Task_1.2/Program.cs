@@ -12,8 +12,10 @@ namespace Task_1._2
         {
             Console.WriteLine("=== Расчет площади и периметра фигур ===\n");
 
+            // Создаем фигуры разных типов
             List<object> shapes = new List<object>();
 
+            // Добавляем фигуры в список
             shapes.Add(new Circle(5));
             shapes.Add(new Rectangle(4, 6));
             shapes.Add(new Triangle(3, 4, 5));
@@ -23,6 +25,7 @@ namespace Task_1._2
 
             Console.WriteLine($"Всего фигур: {shapes.Count}\n");
 
+            // 1. Расчет площадей
             Console.WriteLine("1. Расчет площадей:");
             Console.WriteLine("--------------------");
 
@@ -55,6 +58,7 @@ namespace Task_1._2
 
             Console.WriteLine($"\nОбщая площадь: {totalArea:F2}");
 
+            // 2. Расчет периметров
             Console.WriteLine("\n\n2. Расчет периметров:");
             Console.WriteLine("----------------------");
 
@@ -87,6 +91,7 @@ namespace Task_1._2
 
             Console.WriteLine($"\nОбщий периметр: {totalPerimeter:F2}");
 
+            // 3. Подробная информация о каждой фигуре
             Console.WriteLine("\n\n3. Подробная информация:");
             Console.WriteLine("-------------------------");
 
@@ -108,6 +113,7 @@ namespace Task_1._2
                 }
             }
 
+            // 4. Статистика по типам фигур
             Console.WriteLine("\n\n4. Статистика:");
             Console.WriteLine("----------------");
 
@@ -138,6 +144,7 @@ namespace Task_1._2
                 }
             }
 
+            // Выводим статистику
             Console.WriteLine($"Кругов: {circleCount}, общая площадь: {circleArea:F2}");
             Console.WriteLine($"Прямоугольников: {rectangleCount}, общая площадь: {rectangleArea:F2}");
             Console.WriteLine($"Треугольников: {triangleCount}, общая площадь: {triangleArea:F2}");            
