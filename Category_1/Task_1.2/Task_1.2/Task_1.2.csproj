@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{516E957D-EB6D-4747-B4F2-4A3FBF2A7F77}</ProjectGuid>
+    <ProjectGuid>{B148435E-0DC4-4016-B9DB-6630B96641A3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task_1._1</RootNamespace>
-    <AssemblyName>Task_1.1</AssemblyName>
+    <RootNamespace>Task_1._2</RootNamespace>
+    <AssemblyName>Task_1.2</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,14 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Employee.cs" />
-    <Compile Include="EmployeeWithRole.cs" />
-    <Compile Include="FixedSalaryEmployee.cs" />
-    <Compile Include="FreelancerEmployee.cs" />
-    <Compile Include="HourlySalaryEmployee.cs" />
+    <Compile Include="Circle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Role.cs" />
+    <Compile Include="Rectangle.cs" />
+    <Compile Include="Triangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

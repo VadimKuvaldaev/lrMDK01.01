@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Task_1._1
 {
-    public class Employee
+    public class FixedSalaryEmployee
     {
         private int id_;
         private string fullName_;
         private string email_;
         private decimal monthlySalary_;
 
-        public void FixedSalaryEmployee(int id, string fullName, string email, decimal salary)
+        public FixedSalaryEmployee(int id, string fullName, string email, decimal salary)
         {
             id_ = id;
             fullName_ = fullName;
@@ -28,7 +28,8 @@ namespace Task_1._1
 
         public void PrintInfo()
         {
-            Console.WriteLine($"ID: {id_}, Имя: {fullName_}, Email: {email_}");
+            Console.WriteLine($"Сотрудник: {fullName_}");
+            Console.WriteLine($"ID: {id_}, Email: {email_}");
             Console.WriteLine($"Фиксированная зарплата: {CalculateSalary()} руб.");
         }
     }
