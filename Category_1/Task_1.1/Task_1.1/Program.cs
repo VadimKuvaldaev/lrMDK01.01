@@ -17,7 +17,7 @@ namespace Task_1._1
 
             FixedSalaryEmployee emp1 = new FixedSalaryEmployee(1, "Иван Иванов", "ivan@company.com", 50000);
             HourlySalaryEmployee emp2 = new HourlySalaryEmployee(2, "Петр Петров", "petr@company.com", 500, 160, 20);
-            FreelancerEmployee emp3 = new FreelancerEmployee(3, "Анна Сидорова", "anna@freelance.com", 100000);
+            FreelancerEmployee emp3 = new FreelancerEmployee(3, "Анна Сидорова", "anna@freelance.com", 10000);
 
             Console.WriteLine("\n--- Сотрудник с фиксированной зарплатой ---");
             emp1.PrintInfo();

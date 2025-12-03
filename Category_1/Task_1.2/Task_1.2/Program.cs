@@ -12,7 +12,6 @@ namespace Task_1._2
         {
             Console.WriteLine("=== Расчет площади и периметра фигур ===\n");
 
-            // Создаем фигуры разных типов
             List<object> shapes = new List<object>();
 
             shapes.Add(new Circle(5));
@@ -24,7 +23,6 @@ namespace Task_1._2
 
             Console.WriteLine($"Всего фигур: {shapes.Count}\n");
 
-            // 1. Расчет площадей
             Console.WriteLine("1. Расчет площадей:");
             Console.WriteLine("--------------------");
 
@@ -57,7 +55,6 @@ namespace Task_1._2
 
             Console.WriteLine($"\nОбщая площадь: {totalArea:F2}");
 
-            // 2. Расчет периметров
             Console.WriteLine("\n\n2. Расчет периметров:");
             Console.WriteLine("----------------------");
 
@@ -90,7 +87,6 @@ namespace Task_1._2
 
             Console.WriteLine($"\nОбщий периметр: {totalPerimeter:F2}");
 
-            // 3. Подробная информация о каждой фигуре
             Console.WriteLine("\n\n3. Подробная информация:");
             Console.WriteLine("-------------------------");
 
@@ -112,7 +108,6 @@ namespace Task_1._2
                 }
             }
 
-            // 4. Статистика по типам фигур
             Console.WriteLine("\n\n4. Статистика:");
             Console.WriteLine("----------------");
 

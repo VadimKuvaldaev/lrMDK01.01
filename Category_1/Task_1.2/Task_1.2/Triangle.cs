@@ -21,7 +21,6 @@ namespace Task_1._2
 
         public double CalculateArea()
         {
-            // Формула Герона
             double p = (sideA_ + sideB_ + sideC_) / 2;
             return Math.Sqrt(p * (p - sideA_) * (p - sideB_) * (p - sideC_));
         }
