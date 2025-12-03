@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_1._1
 {
+    // Класс для сотрудника-фрилансера
     public class FreelancerEmployee
     {
         private int id_;
@@ -13,6 +14,7 @@ namespace Task_1._1
         private string email_;
         private decimal projectPayment_;
 
+        // Конструктор
         public FreelancerEmployee(int id, string fullName, string email, decimal projectPayment)
         {
             id_ = id;
@@ -21,12 +23,14 @@ namespace Task_1._1
             projectPayment_ = projectPayment;
         }
 
+        // Метод расчета зарплаты фрилансера
         public decimal CalculateSalary()
         {
             decimal tax = projectPayment_ * 0.13m;
             return projectPayment_ - tax;
         }
 
+        // Метод вывода информации
         public void PrintInfo()
         {
             Console.WriteLine($"Сотрудник: {fullName_}");

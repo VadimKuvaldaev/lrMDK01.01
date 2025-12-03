@@ -10,6 +10,7 @@ namespace Task_1._1
     {
         static void Main(string[] args)
         {
+            // 1. Создаем сотрудников
             Console.WriteLine("=== Система учета сотрудников ===\n");
 
             Console.WriteLine("1. Информация о сотрудниках:");
@@ -19,6 +20,7 @@ namespace Task_1._1
             HourlySalaryEmployee emp2 = new HourlySalaryEmployee(2, "Петр Петров", "petr@company.com", 500, 160, 20);
             FreelancerEmployee emp3 = new FreelancerEmployee(3, "Анна Сидорова", "anna@freelance.com", 10000);
 
+            // Выводим информацию о каждом сотруднике
             Console.WriteLine("\n--- Сотрудник с фиксированной зарплатой ---");
             emp1.PrintInfo();
 
@@ -28,6 +30,7 @@ namespace Task_1._1
             Console.WriteLine("\n--- Фрилансер ---");
             emp3.PrintInfo();
 
+            // 2. Рассчет общей зарплаты
             Console.WriteLine("\n\n2. Ррасчет общей зарплаты:");
             Console.WriteLine("-------------------------");
 
@@ -42,6 +45,7 @@ namespace Task_1._1
             Console.WriteLine($"Зарплата Анны: {salary3} руб.");
             Console.WriteLine($"\nОбщая сумма: {totalSalary} руб.");
 
+            // 3. Добавляем еще сотрудников
             Console.WriteLine("\n\n3. Дополнительные сотрудники:");
             Console.WriteLine("----------------------------");
 
@@ -54,6 +58,7 @@ namespace Task_1._1
             Console.WriteLine("\n--- Новый сотрудник с почасовой оплатой ---");
             emp5.PrintInfo();
 
+            // 4. Итоговый отчет
             Console.WriteLine("\n\n4. Итоговый отчет:");
             Console.WriteLine("------------------");
 
@@ -66,6 +71,7 @@ namespace Task_1._1
             Console.WriteLine($"Общая зарплата всех сотрудников: {totalSalary} руб.");
             Console.WriteLine($"Средняя зарплата: {totalSalary / 5:F0} руб.");
 
+            // 5. Простой пример изменения зарплаты
             Console.WriteLine("\n\n5. Пример изменения:");
             Console.WriteLine("-------------------");
 

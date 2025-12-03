@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_1._1
 {
+    // Класс для сотрудника с почасовой оплатой
     public class HourlySalaryEmployee
     {
         private int id_;
@@ -15,6 +16,7 @@ namespace Task_1._1
         private int hoursWorked_;
         private int overtimeHours_;
 
+        // Конструктор с параметрами
         public HourlySalaryEmployee(int id, string fullName, string email, decimal hourlyRate, int hoursWorked, int overtimeHours = 0)
         {
             id_ = id;
@@ -25,6 +27,7 @@ namespace Task_1._1
             overtimeHours_ = overtimeHours;
         }
 
+        // Метод расчета зарплаты для почасового сотрудника
         public decimal CalculateSalary()
         {
             decimal regularHoursPay = hourlyRate_ * hoursWorked_;
@@ -32,6 +35,7 @@ namespace Task_1._1
             return regularHoursPay + overtimePay;
         }
 
+        // Метод вывода информации
         public void PrintInfo()
         {
             Console.WriteLine($"Сотрудник: {fullName_}");

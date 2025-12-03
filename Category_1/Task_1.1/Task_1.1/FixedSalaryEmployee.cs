@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_1._1
 {
+    // Класс для сотрудника с фиксированной зарплатой
     public class FixedSalaryEmployee
     {
         private int id_;
@@ -13,6 +14,7 @@ namespace Task_1._1
         private string email_;
         private decimal monthlySalary_;
 
+        // Конструктор - метод, который вызывается при создании объекта
         public FixedSalaryEmployee(int id, string fullName, string email, decimal salary)
         {
             id_ = id;
@@ -21,11 +23,13 @@ namespace Task_1._1
             monthlySalary_ = salary;
         }
 
+        // Метод для расчета зарплаты
         public decimal CalculateSalary()
         {
             return monthlySalary_;
         }
 
+        // Метод для вывода информации о сотруднике
         public void PrintInfo()
         {
             Console.WriteLine($"Сотрудник: {fullName_}");
