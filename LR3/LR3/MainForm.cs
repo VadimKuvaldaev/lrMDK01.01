@@ -26,11 +26,26 @@ namespace LR3
         }
         private void InitializeFormEvents()
         {
-            this.Load += Form1_Load;
+            this.Load += MainForm_Load;
             GroupComboBox.SelectedIndexChanged += GroupComboBox_SelectedIndexChanged;
             DrugListBox.SelectedIndexChanged += DrugListBox_SelectedIndexChanged;
             OrderButton.Click += OrderButton_Click;            
             this.FormClosing += Form1_FormClosing;
+        }
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {           
+            if (ImagePictureBox.Image != null)
+            {
+                ImagePictureBox.Image.Dispose();
+                ImagePictureBox.Image = null;
+            }
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (GroupComboBox.Items.Count > 0)
+            {
+                GroupComboBox.SelectedIndex = 0;
+            }
         }
 
     }
