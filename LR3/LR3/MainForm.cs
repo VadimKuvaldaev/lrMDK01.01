@@ -130,6 +130,75 @@ namespace LR3
                 LoadAndDisplayImage(drug);
             }
         }
+        private void LoadAndDisplayImage(Drugs drug)
+        {
+            if (ImagePictureBox.Image != null)
+            {
+                var oldImage = ImagePictureBox.Image;
+                ImagePictureBox.Image = null;
+                oldImage.Dispose();
+            }
+            try
+            {
+                if (File.Exists(drug.ImagePath))
+                {
+                    Image loadedImage = Image.FromFile(drug.ImagePath);
+                    ImagePictureBox.Image = loadedImage;
+                }
+                else
+                {
+                    ImagePictureBox.Image = CreatePlaceholderImage(drug.Name + "\n(Фото отсутствует)");
+                }
+            }
+            catch (Exception ex)
+            {
+                ImagePictureBox.Image = CreatePlaceholderImage(drug.Name + "\n(Ошибка загрузки)");
+                Console.WriteLine($"Ошибка загрузки изображения: {ex.Message}");
+            }
+        }
+        private Image CreatePlaceholderImage(string text)
+        {
+            int width = 200;
+            int height = 200;
+            if (ImagePictureBox.Width > 0) width = ImagePictureBox.Width;
+            if (ImagePictureBox.Height > 0) height = ImagePictureBox.Height;
+            Bitmap bmp = new Bitmap(width, height);
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.Clear(Color.LightGray);
+                g.DrawRectangle(Pens.DarkGray, 0, 0, width - 1, height - 1);
+                g.DrawLine(Pens.Gray, 10, 10, width - 10, height - 10);
+                g.DrawLine(Pens.Gray, width - 10, 10, 10, height - 10);
+                using (Font font = new Font("Arial", 10))
+                {
+                    StringFormat format = new StringFormat
+                    {
+                        Alignment = StringAlignment.Center,
+                        LineAlignment = StringAlignment.Center
+                    };
+                    g.DrawString(text, font, Brushes.Black, new RectangleF(10, 10, width - 20, height - 20), format);
+                }
+            }
+            return bmp;
+        }
+        private void OrderButton_Click(object sender, EventArgs e)
+        {
+            if (DrugListBox.SelectedItem == null) return;
+            string drugName = DrugListBox.SelectedItem.ToString();
+            Drugs drug = drugsDictionary[drugName];
+            int quantity = (int)QuantityNumericUpDown.Value;
+            double total = drug.Price * quantity;
+            MessageBox.Show(
+                $"Заказано: {drug.Name}\n" +
+                $"Группа: {drug.Group}\n" +
+                $"Количество: {quantity} шт.\n" +
+                $"Цена за единицу: {drug.Price:F2} руб.\n" +
+                $"Общая сумма: {total:F2} руб.",
+                "Заказ оформлен",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+        }
 
     }
 }
