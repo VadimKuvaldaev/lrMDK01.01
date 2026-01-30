@@ -12,10 +12,26 @@ using System.Windows.Forms;
 namespace LR3
 {
     public partial class MainForm : Form
-    {        
+    {
+        private List<Group> medicationGroups;
+        private Dictionary<string, Drugs> drugsDictionary;
+        private string imagesFolder;
         public MainForm()
         {
-            InitializeComponent();           
-        }        
+            InitializeComponent();
+            medicationGroups = new List<Group>();
+            drugsDictionary = new Dictionary<string, Drugs>();
+            InitializeData();
+            InitializeFormEvents();
+        }
+        private void InitializeFormEvents()
+        {
+            this.Load += Form1_Load;
+            GroupComboBox.SelectedIndexChanged += GroupComboBox_SelectedIndexChanged;
+            DrugListBox.SelectedIndexChanged += DrugListBox_SelectedIndexChanged;
+            OrderButton.Click += OrderButton_Click;            
+            this.FormClosing += Form1_FormClosing;
+        }
+
     }
 }
