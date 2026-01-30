@@ -101,6 +101,35 @@ namespace LR3
             ImagePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             ImagePictureBox.Image = CreatePlaceholderImage("Выберите препарат");
         }
+        private void GroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (GroupComboBox.SelectedItem == null) return;
+            string groupName = GroupComboBox.SelectedItem.ToString();
+            var group = medicationGroups.FirstOrDefault(g => g.Name == groupName);
+            if (group == null) return;
+            DrugListBox.Items.Clear();
+            foreach (var drug in group.Drugs)
+            {
+                DrugListBox.Items.Add(drug.Name);
+            }
+            if (DrugListBox.Items.Count > 0)
+            {
+                DrugListBox.SelectedIndex = 0;
+            }
+        }
+        private void DrugListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DrugListBox.SelectedItem == null) return;
+            string drugName = DrugListBox.SelectedItem.ToString();
+            if (drugsDictionary.TryGetValue(drugName, out Drugs drug))
+            {
+                PriceLabel.Text = $"Цена: {drug.Price:F2} руб.";
+                ManufacturerLabel.Text = $"Производитель: {drug.Manufacturer}";
+                ExpiryDateLabel.Text = $"Срок годности: {drug.ExpiryDate}";
+                SupplierLabel.Text = $"Поставщик: {drug.Supplier}";
+                LoadAndDisplayImage(drug);
+            }
+        }
 
     }
 }
