@@ -14,6 +14,7 @@ namespace LR3
     public partial class MainForm : Form
     {
         private Dictionary<string, List<Drugs>> drugs_ = new Dictionary<string, List<Drugs>>();
+        private Dictionary<string, int> orderItems_ = new Dictionary<string, int>();
         public MainForm()
         {
             InitializeComponent();
@@ -52,6 +53,33 @@ namespace LR3
                 DateLabel.Text = selectedDrug.Date;
                 ProviderLabel.Text = selectedDrug.Provider;
                 DrugPictureBox.Load(selectedDrug.ImagePath);
+            }
+        }
+
+        private void OrderButton_Click(object sender, EventArgs e)
+        {
+            Drugs selectedDrug = DrugsComboBox.SelectedItem as Drugs;
+            if (selectedDrug != null)
+            {
+                string drugName = selectedDrug.Name;
+                int quantity = (int)QuantityNumericUpDown.Value;
+                if (orderItems_.ContainsKey(drugName)) 
+                {
+                    orderItems_[drugName] += quantity;
+                }
+                else
+                {
+                    orderItems_[drugName] = quantity;
+                }
+               
+                string orderText = "Ваш заказ:\n";
+                foreach (var item in orderItems_)
+                {
+                    orderText += $"{item.Key}: {item.Value} шт.\n";
+                }
+
+                MessageBox.Show(orderText, "Текущий заказ");
+
             }
         }
     }

@@ -153,13 +153,24 @@
             this.OrderButton.TabIndex = 11;
             this.OrderButton.Text = "Заказать";
             this.OrderButton.UseVisualStyleBackColor = true;
+            this.OrderButton.Click += new System.EventHandler(this.OrderButton_Click);
             // 
             // QuantityNumericUpDown
             // 
             this.QuantityNumericUpDown.Location = new System.Drawing.Point(583, 344);
+            this.QuantityNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.QuantityNumericUpDown.Name = "QuantityNumericUpDown";
             this.QuantityNumericUpDown.Size = new System.Drawing.Size(205, 20);
             this.QuantityNumericUpDown.TabIndex = 12;
+            this.QuantityNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // MainForm
             // 
