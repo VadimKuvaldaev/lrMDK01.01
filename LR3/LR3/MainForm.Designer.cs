@@ -69,6 +69,7 @@
             this.DrugPictureBox.Location = new System.Drawing.Point(219, 53);
             this.DrugPictureBox.Name = "DrugPictureBox";
             this.DrugPictureBox.Size = new System.Drawing.Size(569, 220);
+            this.DrugPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.DrugPictureBox.TabIndex = 2;
             this.DrugPictureBox.TabStop = false;
             // 

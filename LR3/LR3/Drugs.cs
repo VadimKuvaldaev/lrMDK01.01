@@ -13,13 +13,15 @@ namespace LR3
         private string manufacturer_;
         private DateTime shelfLifeDate_;
         private string provide_;
-        public Drugs(string name, double price, string manufacturer, DateTime date, string provider)
+        private string imagePath_;
+        public Drugs(string name, double price, string manufacturer, DateTime date, string provider, string imagePath)
         { 
             name_ = name;
             price_ = price;
             manufacturer_ = manufacturer;
             shelfLifeDate_ = date;
-            provide_ = provider;           
+            provide_ = provider; 
+            imagePath_ = imagePath;
         }
         public string Name 
         {
@@ -40,6 +42,10 @@ namespace LR3
         public string Provider
         { 
             get { return provide_; } 
+        }
+        public string ImagePath 
+        {
+            get { return imagePath_; }
         }
     }
 }
