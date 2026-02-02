@@ -30,7 +30,7 @@
         {
             this.CategoriesListBox = new System.Windows.Forms.ListBox();
             this.DrugsComboBox = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DrugPictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@
             this.ProviderLabel = new System.Windows.Forms.Label();
             this.OrderButton = new System.Windows.Forms.Button();
             this.QuantityNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrugPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,14 +62,15 @@
             this.DrugsComboBox.Name = "DrugsComboBox";
             this.DrugsComboBox.Size = new System.Drawing.Size(192, 21);
             this.DrugsComboBox.TabIndex = 1;
+            this.DrugsComboBox.SelectedIndexChanged += new System.EventHandler(this.DrugsComboBox_SelectedIndexChanged);
             // 
-            // pictureBox1
+            // DrugPictureBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(219, 53);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(569, 220);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.DrugPictureBox.Location = new System.Drawing.Point(219, 53);
+            this.DrugPictureBox.Name = "DrugPictureBox";
+            this.DrugPictureBox.Size = new System.Drawing.Size(569, 220);
+            this.DrugPictureBox.TabIndex = 2;
+            this.DrugPictureBox.TabStop = false;
             // 
             // label1
             // 
@@ -174,12 +175,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.DrugPictureBox);
             this.Controls.Add(this.DrugsComboBox);
             this.Controls.Add(this.CategoriesListBox);
             this.Name = "MainForm";
             this.Text = "Кувалдаев_вариант4";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrugPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -190,7 +191,7 @@
 
         private System.Windows.Forms.ListBox CategoriesListBox;
         private System.Windows.Forms.ComboBox DrugsComboBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox DrugPictureBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

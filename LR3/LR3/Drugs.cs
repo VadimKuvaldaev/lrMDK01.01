@@ -25,5 +25,21 @@ namespace LR3
         {
             get { return name_; }
         }
+        public string Price 
+        {
+            get { return price_.ToString(); }
+        }
+        public string Manufacturer 
+        {
+            get { return manufacturer_; }
+        }
+        public string Date 
+        { 
+            get { return shelfLifeDate_.ToString("dd.MM.yyyy"); }
+        }
+        public string Provider
+        { 
+            get { return provide_; } 
+        }
     }
 }

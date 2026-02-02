@@ -37,12 +37,21 @@ namespace LR3
         private void CategoriesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedCategory = CategoriesListBox.SelectedItem.ToString();
-
             List<Drugs> drugSelectedCategory = drugs_[selectedCategory];
             DrugsComboBox.DataSource = drugSelectedCategory;
             DrugsComboBox.DisplayMember = "Name";
         }
 
-        
+        private void DrugsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Drugs selectedDrug = DrugsComboBox.SelectedItem as Drugs;
+            if (selectedDrug != null) 
+            {
+                PriceLabel.Text = selectedDrug.Price;
+                ManufacturerLabel.Text = selectedDrug.Manufacturer;
+                DateLabel.Text = selectedDrug.Date;
+                ProviderLabel.Text = selectedDrug.Provider;
+            }
+        }
     }
 }
