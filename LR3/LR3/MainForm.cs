@@ -42,5 +42,7 @@ namespace LR3
             DrugsComboBox.DataSource = drugSelectedCategory;
             DrugsComboBox.DisplayMember = "Name";
         }
+
+        
     }
 }
