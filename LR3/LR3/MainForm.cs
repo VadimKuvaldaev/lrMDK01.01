@@ -30,6 +30,17 @@ namespace LR3
                     new Drugs("Аскорбиновая кислота", 69.49, "Фарма", new DateTime(2027, 01, 05), "Озон")
                 }
             );
+            List<string> allCategories = drugs_.Keys.ToList();
+            CategoriesListBox.DataSource = allCategories;
+        }
+
+        private void CategoriesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedCategory = CategoriesListBox.SelectedItem.ToString();
+
+            List<Drugs> drugSelectedCategory = drugs_[selectedCategory];
+            DrugsComboBox.DataSource = drugSelectedCategory;
+            DrugsComboBox.DisplayMember = "Name";
         }
     }
 }
