@@ -12,37 +12,51 @@ namespace TestFileStorage
 {
     public partial class MainForm : Form
     {
-        List<string> allCategories = drugs_.Keys.ToList();
+        private List<User> users = new List<User>();
+        private FileUsersStorage fileUsersStorage = new FileUsersStorage();
         public MainForm()
         {
             InitializeComponent();
-            List<string> allLogins = .Keys.ToList();
-            LoginComboBox.DataSource = ;
+            LoadUserLogins();
         }
-
-
         private void EnterButton_Click(object sender, EventArgs e)
         {
-            //string login = LoginTextBox.Text;
-            //string password = PasswordTextBox.Text;
-            List<User> users = new List<User>();
-            FileUsersStorage fileUsersStorage = new FileUsersStorage();
-            users = fileUsersStorage.Load();
-            foreach (User data in users)
+            if (LoginComboBox.SelectedItem == null)
             {
-                if (PasswordTextBox.Text == data.Password)
+                MessageBox.Show("Выберите пользователя!");
+                return;
+            }                      
+            string selectedLogin = LoginComboBox.SelectedItem.ToString();
+            User selectedUser = users.Find(u => u.Login == selectedLogin);
+            if (selectedUser != null)
+            {
+                if (PasswordTextBox.Text == selectedUser.Password)
                 {
                     MessageBox.Show("Пароль введен верно :)");
-                    break;
                 }
                 else
                 {
                     MessageBox.Show("Пароль введен неверно :(");
-                    return;
                 }
-            } 
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не найден!");
+            }
+        }
+        public void LoadUserLogins()
+        {
+            users = fileUsersStorage.Load();
+            LoginComboBox.Items.Clear();
+            foreach (User user in users)
+            {
+                LoginComboBox.Items.Add(user.Login);
+            }
+            if (LoginComboBox.Items.Count > 0)
+            {
+                LoginComboBox.SelectedIndex = 0;
+            }
         }
 
-       
     }
 }

@@ -81,7 +81,6 @@
             this.LoginComboBox.Name = "LoginComboBox";
             this.LoginComboBox.Size = new System.Drawing.Size(100, 21);
             this.LoginComboBox.TabIndex = 5;
-            this.LoginComboBox.SelectedIndexChanged += new System.EventHandler(this.LoginComboBox_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -95,6 +94,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MainForm";
             this.Text = "AuthorizationForm";
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 

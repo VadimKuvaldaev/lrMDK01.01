@@ -10,12 +10,10 @@ namespace TestFileStorage
 {
     public class FileUsersStorage : IUsersInterface
     {
-        //"D:\\П-30\\Repos_kuvaldaev\\TestFileStorage\\TestFileStorage.txt";
-        //FileStream.Seek(2, SeekOrigin.Begin);
         public List<User> Load()
         {
             List<User> result = new List<User>();
-            using (StreamReader reader = new StreamReader("D:\\П-30\\Repos_kuvaldaev\\TestFileStorage\\TestFileStorage.txt"))
+            using (StreamReader reader = new StreamReader("C:\\Users\\Вадим\\мдк01.01\\TestFileStorage\\TestFileStorage.txt"))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
