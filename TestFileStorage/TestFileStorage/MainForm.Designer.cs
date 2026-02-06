@@ -86,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 155);
+            this.ClientSize = new System.Drawing.Size(318, 123);
             this.Controls.Add(this.LoginComboBox);
             this.Controls.Add(this.EnterButton);
             this.Controls.Add(this.label2);
@@ -94,7 +94,6 @@
             this.Controls.Add(this.label1);
             this.Name = "MainForm";
             this.Text = "AuthorizationForm";
-            
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -19,7 +19,7 @@ namespace TestFileStorage
             InitializeComponent();
             LoadUserLogins();
         }
-        private void EnterButton_Click(object sender, EventArgs e)
+        public void EnterButton_Click(object sender, EventArgs e)
         {
             if (LoginComboBox.SelectedItem == null)
             {
