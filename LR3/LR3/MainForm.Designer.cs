@@ -192,6 +192,7 @@
             this.Controls.Add(this.CategoriesListBox);
             this.Name = "MainForm";
             this.Text = "Кувалдаев_вариант4";
+          
             ((System.ComponentModel.ISupportInitialize)(this.DrugPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityNumericUpDown)).EndInit();
             this.ResumeLayout(false);
