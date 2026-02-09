@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace LR3
 {
-     interface ILoadDrugs
+    interface ILoadDrugs
     {
-        List<Drugs> LoadDataFromCsv();
+        Dictionary<string, List<Drugs>> LoadDataFromCsv();
     }
 }

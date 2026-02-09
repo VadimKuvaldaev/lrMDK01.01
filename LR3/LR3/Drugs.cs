@@ -14,31 +14,15 @@ namespace LR3
         private DateTime shelfLifeDate_;
         private string provide_;
         private string imagePath_;
-        private string v1_;
-        private string v2_;
-        private string v3_;
-        private string v4_;
-        private string v5_;
-        private string v6_;
 
-        public Drugs(string name, double price, string manufacturer, DateTime date, string provider, string imagePath)
-        { 
-            name_ = name;
-            price_ = price;
-            manufacturer_ = manufacturer;
-            shelfLifeDate_ = date;
-            provide_ = provider; 
-            imagePath_ = imagePath;
-        }
-
-        public Drugs(string v1, string v2, string v3, string v4, string v5, string v6)
+        public Drugs(string name, string price, string manufacturer, string date, string provider, string imagePath)
         {
-            v1_ = v1;
-            v2_ = v2;
-            v3_ = v3;
-            v4_ = v4;
-            v5_ = v5;
-            v6_ = v6;
+            name_ = name;
+            price_ = double.Parse(price);
+            manufacturer_ = manufacturer;
+            shelfLifeDate_ = DateTime.Parse(date);
+            provide_ = provider;
+            imagePath_ = imagePath;
         }
 
         public string Name 

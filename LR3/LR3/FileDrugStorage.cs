@@ -9,20 +9,39 @@ namespace LR3
 {
     public class FileDrugStorage : ILoadDrugs
     {
-        public List<Drugs> LoadDataFromCsv()
+        public Dictionary<string, List<Drugs>> LoadDataFromCsv()
         {
-            List<Drugs> result = new List<Drugs>();
+            Dictionary<string, List<Drugs>> result = new Dictionary<string, List<Drugs>>();
+
             using (StreamReader reader = new StreamReader("data.csv"))
             {
+                reader.ReadLine();
+
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
                     string[] drugInfo = line.Split(';');
-                    Drugs drug = new Drugs(drugInfo[0], drugInfo[1], drugInfo[2], drugInfo[3], drugInfo[4], drugInfo[5]);
-                    result.Add(drug);
+
+                    string category = drugInfo[0];
+                    string name = drugInfo[1];
+                    string price = drugInfo[2];
+                    string manufacturer = drugInfo[3];
+                    string date = drugInfo[4];
+                    string provider = drugInfo[5];
+                    string imagePath = drugInfo[6];
+
+                    Drugs drug = new Drugs(name, price, manufacturer, date, provider, imagePath);
+
+                    if (!result.ContainsKey(category))
+                    {
+                        result[category] = new List<Drugs>();
+                    }
+
+                    result[category].Add(drug);
                 }
             }
+
             return result;
         }
-    }
+    }   
 }
