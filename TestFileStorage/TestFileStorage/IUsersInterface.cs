@@ -10,6 +10,8 @@ namespace TestFileStorage
     {
         List<User> Load();
 
+        bool Authenticate(string login, string password);
+
         bool CheckExistUser(string User);
 
         bool AddUser( User user);

@@ -27,21 +27,15 @@ namespace TestFileStorage
                 return;
             }                      
             string selectedLogin = LoginComboBox.SelectedItem.ToString();
-            User selectedUser = users.Find(u => u.Login == selectedLogin);
-            if (selectedUser != null)
+            bool isAuthenticated = fileUsersStorage.Authenticate(selectedLogin, PasswordTextBox.Text);
+
+            if (isAuthenticated)
             {
-                if (PasswordTextBox.Text == selectedUser.Password)
-                {
-                    MessageBox.Show("Пароль введен верно :)");
-                }
-                else
-                {
-                    MessageBox.Show("Пароль введен неверно :(");
-                }
+                MessageBox.Show("Пароль введен верно :)");
             }
             else
             {
-                MessageBox.Show("Пользователь не найден!");
+                MessageBox.Show("Пароль введен неверно :(");
             }
         }
         public void LoadUserLogins()

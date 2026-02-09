@@ -25,6 +25,17 @@ namespace TestFileStorage
             }
             return result;
         }
+        public bool Authenticate(string login, string password)
+        {
+            List<User> users = Load();
+            User selectedUser = users.Find(u => u.Login == login);
+
+            if (selectedUser != null)
+            {
+                return password == selectedUser.Password;
+            }
+            return false;
+        }
         public bool CheckExistUser(string Login) 
         {
             List<User> users = Load();            
