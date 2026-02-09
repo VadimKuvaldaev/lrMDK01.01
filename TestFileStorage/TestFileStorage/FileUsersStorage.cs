@@ -36,9 +36,10 @@ namespace TestFileStorage
             }
             return false;
         }
-        public bool CheckExistUser(string Login) 
+
+        public bool CheckExistUser(string Login)
         {
-            List<User> users = Load();            
+            List<User> users = Load();
             foreach (User user in users)
             {
                 if (Login == user.Login)
@@ -51,11 +52,16 @@ namespace TestFileStorage
 
         public bool AddUser(User user)
         {
-            using (StreamWriter writer = new StreamWriter("TestFileStorage.txt", true))
+            if (CheckExistUser(user.Login))
             {
-                 writer.WriteAsync("");
-                 
+                return false; 
             }
+            using (StreamWriter writer = new StreamWriter("TestFileStorage.txt", true)) 
+            {
+                writer.WriteLine($"{user.Login}-{user.Password}");
+            }
+            return true; 
         }
-    }
+    }        
+    
 }

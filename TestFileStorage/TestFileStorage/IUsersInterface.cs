@@ -12,7 +12,7 @@ namespace TestFileStorage
 
         bool Authenticate(string login, string password);
 
-        bool CheckExistUser(string User);
+        bool CheckExistUser(string login);
 
         bool AddUser( User user);
     }
