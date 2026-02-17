@@ -21,15 +21,18 @@ namespace WinForms
         {
             InitializeComponent();
             presenter_ = new UserPresenter(new MemoryUsersModel(), tableView);           
-        }                
+        }
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Вы действительно хотите удалить пользователей?",
+            if (MessageBox.Show("Вы действительно хотите удалить пользователей?",
                             "Внимание",
                              MessageBoxButtons.YesNo,
-                             MassageBoxIcon.Question);
-            List<User> selectedUser = tableView.GetSelectedUsers();
-            presenter_.RemoveUsers(selectedUser);
-        }
+                             MessageBoxIcon.Question)
+                             == DialogResult.Yes)
+            {
+                List<User> selectedUser = tableView.GetSelectedUsers();
+                presenter_.RemoveUsers(selectedUser);
+            } 
+        } 
     }
 }
