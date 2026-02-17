@@ -11,6 +11,8 @@ namespace ModelViewLib.Views
     {
         void ShowUsers(List<User> users);
 
+
+
         List<User> GetSelectedUsers();
     }
 }

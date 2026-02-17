@@ -16,24 +16,20 @@ namespace WinForms
 {
     public partial class MainForm : Form
     {
-        IUsersModel model_ = new MemoryUsersModel();
-        UserPresenter presenter_;
-        private IUsersView view;
-
+        UserPresenter presenter_;       
         public MainForm()
         {
             InitializeComponent();
-            presenter_ = new UserPresenter(model_, view);
-            UsersTableView tableView = new UsersTableView();
-            Controls.Add(tableView);
-            tableView.Dock = DockStyle.Top;
-            this.Controls.Add(this.toolStrip1);
-            UserPresenter user = new UserPresenter( new MemoryUsersModel(), tableView);
+            presenter_ = new UserPresenter(new MemoryUsersModel(), tableView);           
         }                
-
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            List<User> selectedUser = view.GetSelectedUsers();
+            MessageBox.Show("Вы действительно хотите удалить пользователей?",
+                            "Внимание",
+                             MessageBoxButtons.YesNo,
+                             MassageBoxIcon.Question);
+            List<User> selectedUser = tableView.GetSelectedUsers();
+            presenter_.RemoveUsers(selectedUser);
         }
     }
 }

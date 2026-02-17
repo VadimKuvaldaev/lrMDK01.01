@@ -13,13 +13,18 @@ namespace ModelViewLib.Presenters
     {
         private IUsersModel model_;
         private IUsersView view_;
+        //private List<User> user = new List<User>();
         public UserPresenter( IUsersModel model, IUsersView view) 
         {
             model_ = model;
             view_ = view;
-            List<User> usersData = model_.LoadData();
-            view_.ShowUsers(usersData);
+            //user = model.LoadData();
+            view_.ShowUsers(model_.LoadData());
         }
-        
+        public void RemoveUsers(List<User> users) 
+        {
+            model_.RemoveUsers(users);
+            view_.ShowUsers(model_.LoadData());
+        }
     }
 }
