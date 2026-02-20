@@ -9,7 +9,7 @@ namespace LR3
     public class Drugs
     {
         private string name_;
-        private double price_;
+        private int price_;
         private string manufacturer_;
         private DateTime shelfLifeDate_;
         private string provide_;
@@ -18,7 +18,10 @@ namespace LR3
         public Drugs(string name, string price, string manufacturer, string date, string provider, string imagePath)
         {
             name_ = name;
-            price_ = double.Parse(price);
+            if (!int.TryParse(price, out price_))
+            {
+                price_ = 0;
+            }
             manufacturer_ = manufacturer;
             shelfLifeDate_ = DateTime.Parse(date);
             provide_ = provider;

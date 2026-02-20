@@ -13,7 +13,7 @@ namespace LR3
         {
             Dictionary<string, List<Drugs>> result = new Dictionary<string, List<Drugs>>();
 
-            using (StreamReader reader = new StreamReader("data.csv"))
+            using (StreamReader reader = new StreamReader("data.csv", Encoding.GetEncoding(1251)))
             {
                 reader.ReadLine();
 
