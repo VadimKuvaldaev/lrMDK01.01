@@ -16,13 +16,14 @@ namespace WinForms
 {
     public partial class MainForm : Form
     {
-        UserPresenter presenter_;       
+        UserPresenter presenter_;
+        IUsersModel model_ = new MemoryUsersModel();
         public MainForm()
         {
             InitializeComponent();
             presenter_ = new UserPresenter(new MemoryUsersModel(), tableView2);           
         }
-        private void deleteButton_Click(object sender, EventArgs e)
+        private void toolStrip1_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите удалить пользователей?",
                             "Внимание",
@@ -33,6 +34,12 @@ namespace WinForms
                 List<User> selectedUser = tableView2.GetSelectedUsers();
                 presenter_.RemoveUsers(selectedUser);
             } 
-        } 
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            Form.ShowDialog(AddUser);
+
+        }
     }
 }

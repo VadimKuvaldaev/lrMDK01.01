@@ -32,6 +32,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.deleteButton = new System.Windows.Forms.ToolStripButton();
             this.tableView2 = new WinForms.UsersTableView();
+            this.addButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableView2)).BeginInit();
             this.SuspendLayout();
@@ -39,6 +40,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addButton,
             this.deleteButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -54,6 +56,7 @@
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(23, 22);
             this.deleteButton.Text = "Удалить";
+            this.deleteButton.Click += new System.EventHandler(this.toolStrip1_Click);
             // 
             // tableView2
             // 
@@ -64,6 +67,16 @@
             this.tableView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableView2.Size = new System.Drawing.Size(800, 150);
             this.tableView2.TabIndex = 2;
+            // 
+            // addButton
+            // 
+            this.addButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
+            this.addButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(23, 22);
+            this.addButton.Text = "Добавить";
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // MainForm
             // 
@@ -87,6 +100,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton deleteButton;
         private UsersTableView tableView2;
+        private System.Windows.Forms.ToolStripButton addButton;
     }
 }
 
