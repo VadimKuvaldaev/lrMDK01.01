@@ -20,9 +20,9 @@ namespace WinForms
         public MainForm()
         {
             InitializeComponent();
-            presenter_ = new UserPresenter(new MemoryUsersModel(), tableView);           
+            presenter_ = new UserPresenter(new MemoryUsersModel(), tableView2);           
         }
-        private void DeleteButton_Click(object sender, EventArgs e)
+        private void deleteButton_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите удалить пользователей?",
                             "Внимание",
@@ -30,7 +30,7 @@ namespace WinForms
                              MessageBoxIcon.Question)
                              == DialogResult.Yes)
             {
-                List<User> selectedUser = tableView.GetSelectedUsers();
+                List<User> selectedUser = tableView2.GetSelectedUsers();
                 presenter_.RemoveUsers(selectedUser);
             } 
         } 
