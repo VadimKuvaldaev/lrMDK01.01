@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.addButton = new System.Windows.Forms.ToolStripButton();
             this.deleteButton = new System.Windows.Forms.ToolStripButton();
             this.tableView2 = new WinForms.UsersTableView();
-            this.addButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableView2)).BeginInit();
             this.SuspendLayout();
@@ -44,9 +44,19 @@
             this.deleteButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(340, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip2";
+            // 
+            // addButton
+            // 
+            this.addButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
+            this.addButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(23, 22);
+            this.addButton.Text = "Добавить";
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // deleteButton
             // 
@@ -65,28 +75,19 @@
             this.tableView2.Location = new System.Drawing.Point(0, 25);
             this.tableView2.Name = "tableView2";
             this.tableView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableView2.Size = new System.Drawing.Size(800, 150);
+            this.tableView2.Size = new System.Drawing.Size(340, 150);
             this.tableView2.TabIndex = 2;
-            // 
-            // addButton
-            // 
-            this.addButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
-            this.addButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(23, 22);
-            this.addButton.Text = "Добавить";
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(340, 296);
             this.Controls.Add(this.tableView2);
             this.Controls.Add(this.toolStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Список пользователей";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableView2)).EndInit();

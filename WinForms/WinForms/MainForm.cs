@@ -38,8 +38,18 @@ namespace WinForms
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            Form.ShowDialog(AddUser);
-
+            AddUserForm addUserForm = new AddUserForm();
+            
+            if(addUserForm.ShowDialog() == DialogResult.OK) 
+            {
+                if (addUserForm.user.Login != ""
+                    || addUserForm.user.Password != ""
+                    || addUserForm.user.Name != "")
+                {
+                    presenter_.AddUser(addUserForm.user);
+                }
+                else MessageBox.Show("Заполните все поля!!!");
+            }
         }
     }
 }
