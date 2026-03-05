@@ -23,6 +23,7 @@ namespace LR3
             drugs_ = fileDrugStorage.LoadDataFromCsv();
             List<string> allCategories = drugs_.Keys.ToList();
             CategoriesListBox.DataSource = allCategories;
+
         }
         private void CategoriesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
