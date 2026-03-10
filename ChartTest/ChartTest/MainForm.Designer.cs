@@ -1,4 +1,6 @@
-﻿namespace ChartTest
+﻿using ChartTest.Views;
+
+namespace ChartTest
 {
     partial class MainForm
     {
@@ -28,37 +30,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.solid = new LiveCharts.WinForms.SolidGauge();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cartesian = new ChartTest.Views.SalesCartesianChart();
+            this.ItemsList = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.angular = new LiveCharts.WinForms.AngularGauge();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.cartesian = new LiveCharts.WinForms.CartesianChart();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage3.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.solid = new LiveCharts.WinForms.SolidGauge();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.pie = new ChartTest.Views.SalesPieChart();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabPage3
+            // tabControl1
             // 
-            this.tabPage3.Controls.Add(this.solid);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(792, 424);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "SolidChart";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(800, 450);
+            this.tabControl1.TabIndex = 0;
             // 
-            // solid
+            // tabPage1
             // 
-            this.solid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.solid.Location = new System.Drawing.Point(0, 0);
-            this.solid.Name = "solid";
-            this.solid.Size = new System.Drawing.Size(792, 424);
-            this.solid.TabIndex = 0;
-            this.solid.Text = "solid";
+            this.tabPage1.Controls.Add(this.cartesian);
+            this.tabPage1.Controls.Add(this.ItemsList);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(792, 424);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "CartesianChart";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // cartesian
+            // 
+            this.cartesian.Location = new System.Drawing.Point(123, 3);
+            this.cartesian.Name = "cartesian";
+            this.cartesian.Size = new System.Drawing.Size(395, 280);
+            this.cartesian.TabIndex = 0;
+            this.cartesian.Text = "cartesian";
+            // 
+            // ItemsList
+            // 
+            this.ItemsList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ItemsList.FormattingEnabled = true;
+            this.ItemsList.Location = new System.Drawing.Point(3, 3);
+            this.ItemsList.Name = "ItemsList";
+            this.ItemsList.Size = new System.Drawing.Size(120, 418);
+            this.ItemsList.TabIndex = 1;
+            this.ItemsList.SelectedIndexChanged += new System.EventHandler(this.ItemsList_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -80,37 +110,43 @@
             this.angular.TabIndex = 0;
             this.angular.Text = "angular";
             // 
-            // tabPage1
+            // tabPage3
             // 
-            this.tabPage1.Controls.Add(this.cartesian);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 424);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "CartesianChart";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage3.Controls.Add(this.solid);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(792, 424);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "SolidChart";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // cartesian
+            // solid
             // 
-            this.cartesian.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cartesian.Location = new System.Drawing.Point(3, 3);
-            this.cartesian.Name = "cartesian";
-            this.cartesian.Size = new System.Drawing.Size(786, 418);
-            this.cartesian.TabIndex = 0;
-            this.cartesian.Text = "cartesian";
+            this.solid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.solid.Location = new System.Drawing.Point(0, 0);
+            this.solid.Name = "solid";
+            this.solid.Size = new System.Drawing.Size(792, 424);
+            this.solid.TabIndex = 0;
+            this.solid.Text = "solid";
             // 
-            // tabControl1
+            // tabPage4
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
-            this.tabControl1.TabIndex = 0;
+            this.tabPage4.Controls.Add(this.pie);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(792, 424);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "PieChart";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // pie
+            // 
+            this.pie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pie.Location = new System.Drawing.Point(0, 0);
+            this.pie.Name = "pie";
+            this.pie.Size = new System.Drawing.Size(792, 424);
+            this.pie.TabIndex = 0;
+            this.pie.Text = "pieChart1";
             // 
             // MainForm
             // 
@@ -120,22 +156,27 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
             this.Text = "LiveCharts-диаграммы";
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.TabPage tabPage3;
-        private LiveCharts.WinForms.SolidGauge solid;
-        private System.Windows.Forms.TabPage tabPage2;
-        private LiveCharts.WinForms.AngularGauge angular;
-        private System.Windows.Forms.TabPage tabPage1;
-        private LiveCharts.WinForms.CartesianChart cartesian;
+
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private SalesCartesianChart cartesian;
+        private LiveCharts.WinForms.AngularGauge angular;
+        private LiveCharts.WinForms.SolidGauge solid;
+        private System.Windows.Forms.ListBox ItemsList;
+        private System.Windows.Forms.TabPage tabPage4;
+        private SalesPieChart pie;
     }
 }
 

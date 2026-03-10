@@ -1,7 +1,13 @@
-﻿using LiveCharts;
-using LiveCharts.WinForms;
+﻿using ChartTest.Views;
+using LiveCharts;
 using LiveCharts.Wpf;
-using System.Windows;
+using SalesLibrary;
+using SalesLibrary.Analysis;
+using SalesLibrary.Presenters;
+using SalesLibrary.Views;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Media;
 
@@ -9,112 +15,58 @@ namespace ChartTest
 {
     public partial class MainForm : Form
     {
+        private SalesPresenter presenter_;
+
 
         void FillCartesianChart()
         {
-            LineSeries series = new LineSeries
+            ItemsList.DataSource = presenter_.GetAllItems();
+            ItemsList.DisplayMember = "Name";
+            if (ItemsList.Items.Count > 0)
             {
-                Title = "Продажи",
-                Values = new ChartValues<int> { 10, 15, 12, 18, 25, 22 },
-
-                Stroke = new SolidColorBrush(Colors.Blue),
-                StrokeThickness = 2,
-
-                PointGeometry = DefaultGeometries.Circle,
-                PointGeometrySize = 7,
-
-                Fill = new LinearGradientBrush(
-                    System.Windows.Media.Color.FromArgb(90, 33, 150, 243),
-                    System.Windows.Media.Color.FromArgb(0, 33, 150, 243),
-                    90)
-            };
-
-            cartesian.Series = new SeriesCollection { series, /*series_2, series_3*/ };
-
-            /// Ось Y
-            cartesian.AxisY.Add(new Axis
-            {
-                Foreground = System.Windows.Media.Brushes.Black,
-                LabelFormatter = value => value.ToString("N0"),
-
-                Separator = new Separator
-                {
-                    Stroke = new SolidColorBrush(Color.FromArgb(40, 0, 0, 0)),
-                    StrokeThickness = 1
-                },
-
-                MaxValue = 30,
-                MinValue = 1
-            }              
-            );
-
-
-            /// Ось X
-            cartesian.AxisX.Add(new Axis
-            {
-                Foreground = System.Windows.Media.Brushes.Black,
-                Labels = new[] { "Янв", "Фев", "Мар", "Апр", "Май", "Июн" },
-
-                Separator = new Separator
-                {
-                    IsEnabled = false,
-                },
+                presenter_.ShowSalesByItem(((Item)ItemsList.Items[0]).Name);
             }
-            );
         }
-
         void FillAngular()
         {
-            angular.Value = 65;
             angular.FromValue = 0;
             angular.ToValue = 100;
-
-            angular.TicksForeground = Brushes.Gray;
-            angular.NeedleFill = Brushes.DarkBlue;
-
-            angular.LabelsStep = 10;
-            angular.TickStep = 5;
+            angular.TicksForeground = System.Windows.Media.Brushes.Gray;
+            angular.NeedleFill = System.Windows.Media.Brushes.DarkBlue;
         }
 
         void FillSolid()
         {
-            solid.Value = 40;
             solid.From = 0;
             solid.To = 100;
             solid.LabelFormatter = value => value + "%";
-            //solid.GaugeBackground = Brushes.Red;
-            angular.Sections.Add(new AngularSection
-            {
-                FromValue = 70, 
-                ToValue = 80,
-                Fill = new SolidColorBrush(Color.FromRgb(100, 0, 0))
-            }
-            );
-            solid.Base.LabelsVisibility = System.Windows.Visibility.Hidden;
-            solid.Base.GaugeActiveFill = new System.Windows.Media.LinearGradientBrush
-            {
-
-                GradientStops = new System.Windows.Media.GradientStopCollection
-                {
-                    new System.Windows.Media.GradientStop(System.Windows.Media.Colors.Green,5),
-                    new System.Windows.Media.GradientStop(System.Windows.Media.Colors.Red,0),
-                    new System.Windows.Media.GradientStop (System.Windows.Media.Colors.Blue,1)
-                }
-
-            };
-        }
-       
+        }       
         public MainForm()
         {
-            InitializeComponent();
+            InitializeComponent();            
+            presenter_ = new SalesPresenter(new List<ISalesView> { cartesian });
+
+            pie.SetPresenter(presenter_);
+            pie.UpdateView();
+            
 
             FillCartesianChart();
-
             FillAngular();
+            FillSolid();                        
+        }
 
-            FillSolid();
-
-           
+        private void ItemsList_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            Item selectedItem = ((Item)(ItemsList.SelectedItem));
+            if (selectedItem == null)
+            {
+                return;
+            }
+            presenter_.ShowSalesByItem(selectedItem.Name);
+            double percent = Math.Round(presenter_.GetProfitPercentByItem(selectedItem), 2);
+            angular.Value = percent;
+            solid.Value = percent;
+            
         }
     }
 }
