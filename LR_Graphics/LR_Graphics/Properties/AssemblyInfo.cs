@@ -1,0 +1,33 @@
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+// Общие сведения об этой сборке предоставляются следующим набором
+// набора атрибутов. Измените значения этих атрибутов для изменения сведений,
+// связанных со сборкой.
+[assembly: AssemblyTitle("LR_Graphics")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("LR_Graphics")]
+[assembly: AssemblyCopyright("Copyright ©  2026")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+
+// Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми
+// для компонентов COM. Если необходимо обратиться к типу в этой сборке через
+// COM, следует установить атрибут ComVisible в TRUE для этого типа.
+[assembly: ComVisible(false)]
+
+// Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
+[assembly: Guid("bb5c4caf-f8a9-46b9-92dd-15e8b6bd9a9b")]
+
+// Сведения о версии сборки состоят из указанных ниже четырех значений:
+//
+//      Основной номер версии
+//      Дополнительный номер версии
+//      Номер сборки
+//      Редакция
+//
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
