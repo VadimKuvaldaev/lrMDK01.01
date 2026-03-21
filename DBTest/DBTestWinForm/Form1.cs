@@ -21,15 +21,28 @@ namespace DBTestWinForm
             InitializeComponent();
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            List<User> users = loader.Load();
+            BindingList<User> users = loader.Load();
             dataGridView.DataSource = users;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            DataGridViewRow row = dataGridView.SelectedRows[0];
-            User user = row.DataBoundItem as User;
-            loader.DeleteSelectedUser(user.Login);
+            DialogResult result = MessageBox.Show("Вы действительно хотите удалить эту запись?", "Внимамние", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                DataGridViewRow row = dataGridView.SelectedRows[0];
+                User user = row.DataBoundItem as User;
+                loader.DeleteSelectedUser(user.Login);
+            }
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Вы действительно хотите удалить все записи?", "Внимамние", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                loader.ClearAllUsers();
+            }
         }
     }
 }

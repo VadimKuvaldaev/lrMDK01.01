@@ -31,6 +31,7 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.CreateButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,11 +62,22 @@
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(276, 310);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(105, 45);
+            this.clearButton.TabIndex = 3;
+            this.clearButton.Text = "Очистить";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.CreateButton);
             this.Controls.Add(this.dataGridView);
@@ -81,6 +93,7 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button CreateButton;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button clearButton;
     }
 }
 

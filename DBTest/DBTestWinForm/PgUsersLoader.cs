@@ -1,9 +1,11 @@
 ﻿using Npgsql;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -11,12 +13,13 @@ namespace DBTestWinForm
 {
     public class PgUsersLoader
     {
+        BindingList<User> loader = new BindingList<User>();
          private const string connectSetting = "Host=192.168.1.48;Username=st50-10;Password=5010;Database=MDK01.01_Kuvaldaev";
-        public List<User> Load() 
+        public BindingList<User> Load() 
         {
             try
             {
-                List<User> result = new List<User>();
+                
                 var con = new NpgsqlConnection(connectSetting);
                 con.Open();
                 var sql = "SELECT login, password, age, name, last_name From myusers";
@@ -32,9 +35,9 @@ namespace DBTestWinForm
                         Name = reader.GetString(3),
                         LastName = reader.GetString(4)
                     };
-                    result.Add(user);
+                    loader.Add(user);
                 }
-                return result;
+                return loader;
             }
             catch(NpgsqlException exception)
             {
@@ -47,20 +50,55 @@ namespace DBTestWinForm
         {
             try
             {
-                bool result = false;
+                bool deleteResult = false;
                 var con = new NpgsqlConnection(connectSetting);
                 con.Open();
                 var sql = "DELETE FROM myusers Where login = @login";
                 var cmd = new NpgsqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@login", Login);
-                int execute = cmd.ExecuteNonQuery();
-                if (execute > 0)
-                {
-                    result = true;
-                }
-                return result;
+               
+                    int execute = cmd.ExecuteNonQuery();
+                    if (execute > 0)
+                    {
+                        deleteResult = true;
+                        for (int index = 0; index < loader.Count; index++)
+                        {
+                            if (loader[index].Login == Login)
+                            {
+                                loader.RemoveAt(index);
+                                index--;
+                            }
+                        }
+                    }
+                    return deleteResult;
+                              
             }
             catch(NpgsqlException exception) 
+            {
+                MessageBox.Show($"Ошибка: {exception.Message}");
+                return false;
+            }
+        }
+
+        public bool ClearAllUsers() 
+        {
+            try
+            {
+                bool result = false;
+                var con = new NpgsqlConnection(connectSetting);
+                con.Open();
+                var sql = "DELETE FROM myusers";
+                var cmd = new NpgsqlCommand(sql, con);
+               
+                    int execute = cmd.ExecuteNonQuery();
+                    if (execute > 0)
+                    {
+                        result = true;
+                        loader.Clear();
+                    }
+                    return result;                
+            }
+            catch (NpgsqlException exception)
             {
                 MessageBox.Show($"Ошибка: {exception.Message}");
                 return false;
