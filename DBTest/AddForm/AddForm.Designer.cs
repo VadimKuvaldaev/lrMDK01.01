@@ -1,6 +1,6 @@
 ﻿namespace AddForm
 {
-    partial class Form1
+    partial class AddForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.

@@ -12,11 +12,12 @@ using Npgsql;
 
 namespace DBTestWinForm
 {
-    public partial class Form1: Form
+    public partial class MainForm: Form
     {
-        PgUsersLoader loader = new PgUsersLoader();
+         PgUsersLoader loader = new PgUsersLoader();
+        
 
-        public Form1()
+        public MainForm()
         {                                              
             InitializeComponent();
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -27,7 +28,7 @@ namespace DBTestWinForm
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Вы действительно хотите удалить эту запись?", "Внимамние", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Вы действительно хотите удалить эту запись?", "Внимание", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 DataGridViewRow row = dataGridView.SelectedRows[0];
@@ -38,11 +39,17 @@ namespace DBTestWinForm
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Вы действительно хотите удалить все записи?", "Внимамние", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Вы действительно хотите удалить все записи?", "Внимание", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 loader.ClearAllUsers();
             }
+        }
+
+        private void CreateButton_Click(object sender, EventArgs e)
+        {
+            AddForm AddForm = new AddForm(loader);
+            AddForm.Show();
         }
     }
 }
