@@ -33,12 +33,15 @@ namespace DBTestWinForm
                 MessageBox.Show("Возраст не может быть меньше 0");
                 return;
             }
-            loader_.AddUser(LoginTextBox.Text,
-                PasswordTextBox.Text,
-                AgeNumericUpDown.Value,
-                NameTextBox.Text,
-                LastNameTextBox.Text                
-                );
+            User user = new User
+            {
+                Login = LoginTextBox.Text,
+                Password = PasswordTextBox.Text,
+                Age = (int)AgeNumericUpDown.Value,
+                Name = NameTextBox.Text,
+            };
+            loader_.AddUser(user);
+            this.Close();
         }
 
         private void CanselButton_Click(object sender, EventArgs e)
@@ -48,7 +51,20 @@ namespace DBTestWinForm
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-
+            User user = new User
+            {
+                Login = LoginTextBox.Text,
+                Password = PasswordTextBox.Text,
+                Age = (int)AgeNumericUpDown.Value,
+                Name = NameTextBox.Text,
+            };
+            loader_.AddUser(user);
         }
+        /*private void LoginTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+            AcceptButton.Enabled = true;
+
+        }*/
     }
 }

@@ -83,7 +83,6 @@
             this.Controls.Add(this.CreateButton);
             this.Controls.Add(this.dataGridView);
             this.Name = "MainForm";
-            this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
