@@ -32,6 +32,7 @@
             this.CreateButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(156, 310);
+            this.deleteButton.Location = new System.Drawing.Point(260, 310);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(105, 45);
             this.deleteButton.TabIndex = 2;
@@ -65,7 +66,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(276, 310);
+            this.clearButton.Location = new System.Drawing.Point(371, 310);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(105, 45);
             this.clearButton.TabIndex = 3;
@@ -73,11 +74,22 @@
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(149, 310);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(105, 45);
+            this.updateButton.TabIndex = 4;
+            this.updateButton.Text = "Редактировать";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.CreateButton);
@@ -94,6 +106,7 @@
         private System.Windows.Forms.Button CreateButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Button updateButton;
     }
 }
 

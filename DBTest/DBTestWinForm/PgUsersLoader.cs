@@ -21,7 +21,7 @@ namespace DBTestWinForm
             {               
                 var con = new NpgsqlConnection(connectSetting);
                 con.Open();
-                var sql = "SELECT login, password, age, name, last_name From myusers";
+                var sql = "SELECT login, password, last_name, name, age From myusers";
                 var cmd = new NpgsqlCommand(sql, con);
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -30,11 +30,11 @@ namespace DBTestWinForm
                     {
                         Login = reader.GetString(0),
                         Password = reader.GetString(1),
-                        Age = reader.GetInt32(2),
+                        LastName = reader.GetString(2),
                         Name = reader.GetString(3),
-                        LastName = reader.GetString(4)
+                        Age = reader.GetInt32(4),
                     };
-                    loader.Add(user);
+                    loader.Add(user);///
                 }
                 return loader;
             }
@@ -106,12 +106,13 @@ namespace DBTestWinForm
                 bool addResult = false;
                 var con = new NpgsqlConnection(connectSetting);
                 con.Open();
-                var sql = "INSERT INTO myusers(login, password, name, age) VALUES(@login, @password, @name ,@age)";
+                var sql = "INSERT INTO myusers(login, password, name, age, last_name) VALUES(@login, @password, @name ,@age, @last_name)";
                 var cmd = new NpgsqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@login", user.Login);
                 cmd.Parameters.AddWithValue("@password", user.Password);
                 cmd.Parameters.AddWithValue("@name", user.Name);
                 cmd.Parameters.AddWithValue("@age", user.Age);
+                cmd.Parameters.AddWithValue("@last_name", user.LastName);
                 int execute = cmd.ExecuteNonQuery();
                 if (execute > 0)
                 {
@@ -119,6 +120,40 @@ namespace DBTestWinForm
                     loader.Add(user);
                 }
                 return addResult;
+            }
+            catch (NpgsqlException exception)
+            {
+                MessageBox.Show($"Ошибка: {exception.Message}");
+                return false;
+            }
+        }
+        public bool UpdateUsers(User user) 
+        {
+            try 
+            {
+                bool upResult = false;
+                var con = new NpgsqlConnection(connectSetting);
+                con.Open();
+                var sql = "UPDATE myusers SET password = @password, name = @name, age = @age, last_name = @last_name WHERE login = @login";
+                var cmd = new NpgsqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@login", user.Login);
+                cmd.Parameters.AddWithValue("@password", user.Password);
+                cmd.Parameters.AddWithValue("@name", user.Name);
+                cmd.Parameters.AddWithValue("@age", user.Age);
+                cmd.Parameters.AddWithValue("@last_name", user.LastName);
+                int execute = cmd.ExecuteNonQuery();
+                if (execute > 0)
+                {
+                    upResult = true;
+                    for (int i = 0; i < loader.Count; i++)
+                    {
+                        if (loader[i].Login == user.Login)
+                        {
+                            loader[i] = user;
+                        }
+                    }
+                }
+                return upResult;
             }
             catch (NpgsqlException exception)
             {

@@ -14,9 +14,7 @@ namespace DBTestWinForm
 {
     public partial class MainForm: Form
     {
-         PgUsersLoader loader = new PgUsersLoader();
-        
-
+        PgUsersLoader loader = new PgUsersLoader();
         public MainForm()
         {                                              
             InitializeComponent();
@@ -24,6 +22,7 @@ namespace DBTestWinForm
 
             BindingList<User> users = loader.Load();
             dataGridView.DataSource = users;
+            
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -50,6 +49,15 @@ namespace DBTestWinForm
         {
             AddForm AddForm = new AddForm(loader);
             AddForm.Show();
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dataGridView.SelectedRows[0];
+            User selectedUser = row.DataBoundItem as User;
+            AddForm addUpdateUser = new AddForm(loader);           
+            addUpdateUser.SetUser(selectedUser);
+            addUpdateUser.Show();            
         }
     }
 }
