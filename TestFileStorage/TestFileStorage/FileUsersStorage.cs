@@ -10,10 +10,12 @@ namespace TestFileStorage
 {
     public class FileUsersStorage : IUsersInterface
     {
+        //"D:\\П-30\\Repos_kuvaldaev\\TestFileStorage\\TestFileStorage.txt";
+        //FileStream.Seek(2, SeekOrigin.Begin);
         public List<User> Load()
         {
             List<User> result = new List<User>();
-            using (StreamReader reader = new StreamReader("TestFileStorage.txt"))
+            using (StreamReader reader = new StreamReader("D:\\П-30\\Repos_kuvaldaev\\TestFileStorage\\TestFileStorage.txt"))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
@@ -25,43 +27,5 @@ namespace TestFileStorage
             }
             return result;
         }
-        public bool Authenticate(string login, string password)
-        {
-            List<User> users = Load();
-            User selectedUser = users.Find(u => u.Login == login);
-
-            if (selectedUser != null)
-            {
-                return password == selectedUser.Password;
-            }
-            return false;
-        }
-
-        public bool CheckExistUser(string Login)
-        {
-            List<User> users = Load();
-            foreach (User user in users)
-            {
-                if (Login == user.Login)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public bool AddUser(User user)
-        {
-            if (CheckExistUser(user.Login))
-            {
-                return false; 
-            }
-            using (StreamWriter writer = new StreamWriter("TestFileStorage.txt", true)) 
-            {
-                writer.WriteLine($"{user.Login}-{user.Password}");
-            }
-            return true; 
-        }
-    }        
-    
+    }
 }

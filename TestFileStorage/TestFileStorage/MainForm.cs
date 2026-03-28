@@ -12,45 +12,33 @@ namespace TestFileStorage
 {
     public partial class MainForm : Form
     {
-        private List<User> users = new List<User>();
-        private FileUsersStorage fileUsersStorage = new FileUsersStorage();
+
         public MainForm()
         {
             InitializeComponent();
-            LoadUserLogins();
         }
-        public void EnterButton_Click(object sender, EventArgs e)
-        {
-            if (LoginComboBox.SelectedItem == null)
-            {
-                MessageBox.Show("Выберите пользователя!");
-                return;
-            }                      
-            string selectedLogin = LoginComboBox.SelectedItem.ToString();
-            bool isAuthenticated = fileUsersStorage.Authenticate(selectedLogin, PasswordTextBox.Text);
 
-            if (isAuthenticated)
-            {
-                MessageBox.Show("Пароль введен верно :)");
-            }
-            else
-            {
-                MessageBox.Show("Пароль введен неверно :(");
-            }
-        }
-        public void LoadUserLogins()
+
+        private void EnterButton_Click(object sender, EventArgs e)
         {
+            //string login = LoginTextBox.Text;
+            //string password = PasswordTextBox.Text;
+            List<User> users = new List<User>();
+            FileUsersStorage fileUsersStorage = new FileUsersStorage();
             users = fileUsersStorage.Load();
-            LoginComboBox.Items.Clear();
-            foreach (User user in users)
+            foreach (User data in users)
             {
-                LoginComboBox.Items.Add(user.Login);
-            }
-            if (LoginComboBox.Items.Count > 0)
-            {
-                LoginComboBox.SelectedIndex = 0;
+                if (PasswordTextBox.Text == data.Password)
+                {
+                    MessageBox.Show("Пароль введен верно :)");
+                    break;
+                }
+                else
+                {
+                    MessageBox.Show("Пароль введен неверно :(");
+                    return;
+                }
             }
         }
-
     }
 }

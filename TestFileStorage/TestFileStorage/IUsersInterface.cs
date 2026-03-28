@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TestFileStorage
-{ 
+{
     interface IUsersInterface
     {
         List<User> Load();
 
-        bool Authenticate(string login, string password);
+        bool UserVerification(string login);
+        bool UserRegistration(User us);
 
-        bool CheckExistUser(string login);
 
-        bool AddUser( User user);
+
     }
+
+    
 }
