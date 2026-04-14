@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LR2 // Кувалдаев П-30 Вариант 5
+namespace LR2
 {
     public class Analysis
     {
@@ -29,10 +29,10 @@ namespace LR2 // Кувалдаев П-30 Вариант 5
         }
         static public double CalculateAverage(List<int> counts) // Подсчет среднего количества скачиваний
         {
-          double sum = 0;
+            double sum = 0;
             foreach (int count in counts)
-            { 
-              sum += count;
+            {
+                sum += count;
             }
             return sum / counts.Count;
         }
