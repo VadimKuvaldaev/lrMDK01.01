@@ -1,4 +1,6 @@
-﻿namespace LR_Graphics
+﻿using LR_Graphics.View;
+
+namespace LR_Graphics
 {
     partial class MainForm
     {
@@ -28,59 +30,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rentalListBox = new System.Windows.Forms.ListBox();
-            this.cartesian = new LiveCharts.WinForms.CartesianChart();
-            this.pie = new LiveCharts.WinForms.PieChart();
+            this.listBoxItems = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rentalPieChart = new LR_Graphics.View.RentalPieChart();
+            this.rentalCartesianChart = new LR_Graphics.View.RentalCartesianChart();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // rentalListBox
+            // listBoxItems
             // 
-            this.rentalListBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rentalListBox.FormattingEnabled = true;
-            this.rentalListBox.Location = new System.Drawing.Point(0, 0);
-            this.rentalListBox.Name = "rentalListBox";
-            this.rentalListBox.Size = new System.Drawing.Size(120, 459);
-            this.rentalListBox.TabIndex = 2;
-            // 
-            // cartesian
-            // 
-            this.cartesian.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cartesian.Location = new System.Drawing.Point(120, 0);
-            this.cartesian.Name = "cartesian";
-            this.cartesian.Size = new System.Drawing.Size(462, 459);
-            this.cartesian.TabIndex = 3;
-            this.cartesian.Text = "cartesianChart1";
-            // 
-            // pie
-            // 
-            this.pie.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pie.Location = new System.Drawing.Point(6, 0);
-            this.pie.Name = "pie";
-            this.pie.Size = new System.Drawing.Size(206, 459);
-            this.pie.TabIndex = 0;
-            this.pie.Text = "pieChart1";
+            this.listBoxItems.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listBoxItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxItems.FormattingEnabled = true;
+            this.listBoxItems.ItemHeight = 18;
+            this.listBoxItems.Location = new System.Drawing.Point(0, 0);
+            this.listBoxItems.Name = "listBoxItems";
+            this.listBoxItems.Size = new System.Drawing.Size(120, 412);
+            this.listBoxItems.TabIndex = 0;
+            this.listBoxItems.SelectedIndexChanged += new System.EventHandler(this.listBoxItems_SelectedIndexChanged);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pie);
+            this.panel1.Controls.Add(this.rentalPieChart);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(585, 0);
+            this.panel1.Location = new System.Drawing.Point(517, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(212, 459);
-            this.panel1.TabIndex = 4;
+            this.panel1.Size = new System.Drawing.Size(273, 412);
+            this.panel1.TabIndex = 2;
+            // 
+            // rentalPieChart
+            // 
+            this.rentalPieChart.Dock = System.Windows.Forms.DockStyle.Right;
+            this.rentalPieChart.Location = new System.Drawing.Point(6, 0);
+            this.rentalPieChart.Name = "rentalPieChart";
+            this.rentalPieChart.Size = new System.Drawing.Size(267, 412);
+            this.rentalPieChart.TabIndex = 0;
+            this.rentalPieChart.Text = "pieChart1";
+            // 
+            // rentalCartesianChart
+            // 
+            this.rentalCartesianChart.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rentalCartesianChart.Location = new System.Drawing.Point(120, 0);
+            this.rentalCartesianChart.Name = "rentalCartesianChart";
+            this.rentalCartesianChart.Size = new System.Drawing.Size(401, 412);
+            this.rentalCartesianChart.TabIndex = 1;
+            this.rentalCartesianChart.Text = "cartesianChart1";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 459);
+            this.ClientSize = new System.Drawing.Size(790, 412);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.cartesian);
-            this.Controls.Add(this.rentalListBox);
+            this.Controls.Add(this.rentalCartesianChart);
+            this.Controls.Add(this.listBoxItems);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Аренда спорт инвентаря";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -88,10 +96,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox rentalListBox;
-        private LiveCharts.WinForms.CartesianChart cartesian;
-        private LiveCharts.WinForms.PieChart pie;
+        private System.Windows.Forms.ListBox listBoxItems;
+        private LR_Graphics.View.RentalCartesianChart rentalCartesianChart;
         private System.Windows.Forms.Panel panel1;
+        private RentalPieChart rentalPieChart;
     }
 }
 

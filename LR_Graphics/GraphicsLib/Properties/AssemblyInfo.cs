@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные со сборкой.
-[assembly: AssemblyTitle("LR_Lib")]
+[assembly: AssemblyTitle("GraphicsLib")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LR_Lib")]
+[assembly: AssemblyProduct("GraphicsLib")]
 [assembly: AssemblyCopyright("Copyright ©  2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("86b9f674-b6f3-47c4-ac8e-8b2048205683")]
+[assembly: Guid("5703d336-7a8e-4ae5-9cc6-7158a4322139")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //

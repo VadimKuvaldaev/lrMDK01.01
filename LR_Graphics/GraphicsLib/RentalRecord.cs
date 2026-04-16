@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LR_Lib.Model
+namespace GraphicsLib
 {
     public class RentalRecord
     {
