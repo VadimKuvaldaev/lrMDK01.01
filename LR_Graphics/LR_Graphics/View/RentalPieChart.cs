@@ -20,8 +20,8 @@ namespace LR_Graphics.View
                 {
                     Title = item.Name,
                     Values = new ChartValues<double> { presenter.GetContributionPercent(item) },
-                    DataLabels = true,
-                    LabelPoint = chartPoint => $"{chartPoint.Y}%"
+                    DataLabels = false,
+                    LabelPoint = point => "" //= chartPoint => $"{chartPoint.Y}%"
                 });
             }
             Series = series;
